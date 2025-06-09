@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+    /* Color coustom */
+    --color-primary: #FA541C;
+    --color-primary-400: #FB7649;
+    --color-primaryBack : #FEEEE8;
+    --color-background: #FFFFFF;
+    --color-secondary: #032340;
+    --color-secondery-700: #021425;
+    --color-secondaryBack: #EBF5FF;
+    --color-secondaryCBCBCB: #CBCBCB;
+    --color-secondarySky: #67AAE6;
+    --color-Neutral: #f9f9f9;
+    --color-NeutralSecondory :#606060;
+    --color-Neutral868686: #868686;
+}
+.hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/public/background.jfif");
+    background-size: cover;
+    background-position: center;
+}
