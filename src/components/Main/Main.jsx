@@ -1,14 +1,20 @@
 import React from 'react'
 import CheckServices from './CheckServices/CheckServices'
-import Categories from './Categories/Categories'
-import Products from './Products/Products'
+import CategorySlider from './Categories/Categories'
+import ProductList from './Products/Products'
+import Slider from './Slider/Slider';
+import SteelProducts from './SteelProducts/SteelProducts';
 
 export default function Main() {
   return (
     <div>
         <CheckServices />
-        <Categories />
-        <Products />
+        <div className="w-full h-full items-center justify-center">
+          <Slider />
+        </div>
+        <CategorySlider />
+        <ProductList />
+        <SteelProducts />
     </div>
   )
 }

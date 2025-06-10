@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@plugin "daisyui" {
+  themes: all;
+}
+
 
 @theme {
     /* Color coustom */
@@ -16,7 +20,7 @@
     --color-Neutral868686: #868686;
 }
 .hero-section {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/public/background.jfif");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/public/banner.jpg");
     background-size: cover;
     background-position: center;
 }
