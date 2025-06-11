@@ -68,9 +68,9 @@ export default function Slider() {
                         alt={image.alt}
                         className="w-full h-[400px] object-cover"
                     />
-                    <a href='#' className="p-2.5 absolute bottom-4 left-4 text-secondary w-1/2 bg-white/80 px-5 rounded-md text-2xl font-bold drop-shadow-md">
+                    <a href='#' className="p-2.5 absolute bottom-4 left-4 text-black w-1/2 bg-white/80 px-5 rounded-md text-2xl font-bold drop-shadow-md">
                         {image.title}
-                        <p className="text-sm line-clamp-2">{image.descriptions}</p>
+                        <p className="text-sm text-black line-clamp-2">{image.descriptions}</p>
                     </a>
                     </div>
                 </SwiperSlide>

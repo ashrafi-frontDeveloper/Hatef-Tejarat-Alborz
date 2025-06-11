@@ -4,6 +4,9 @@ import CategorySlider from './Categories/Categories'
 import ProductList from './Products/Products'
 import Slider from './Slider/Slider';
 import SteelProducts from './SteelProducts/SteelProducts';
+import WireProducts from './WireProducts/WireProducts';
+import Trusted from './Trusted/Trusted';
+
 
 export default function Main() {
   return (
@@ -15,6 +18,8 @@ export default function Main() {
         <CategorySlider />
         <ProductList />
         <SteelProducts />
+        <WireProducts />
+        <Trusted />
     </div>
   )
 }

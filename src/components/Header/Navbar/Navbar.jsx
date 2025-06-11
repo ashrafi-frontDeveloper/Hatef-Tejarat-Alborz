@@ -10,12 +10,12 @@ const Logo = () => (
   <div className="flex items-center gap-2 shrink-0">
     <img 
       alt="JinStore logo with a smiling box icon" 
-      className="w-10 h-10 bg-secondary" 
-      src="/Logo-HTA-1.png" 
+      className="w-10 h-10 bg-white rounded-full" 
+      src="/Logo-HTA.png" 
       width="32"
       height="32"
     />
-    <span className="font-semibold text-lg select-none whitespace-nowrap text-secondery-700">Hatef Tejarat Alborz</span>
+    <span className="font-semibold text-lg select-none whitespace-nowrap text-white">Hatef Tejarat Alborz</span>
   </div>
 );
 
@@ -23,12 +23,12 @@ const SearchBar = () => (
   <div className="flex-1 min-w-[180px] max-w-full sm:max-w-[600px]">
     <div className="relative">
       <input 
-        className="w-full border border-gray-300 rounded-md py-2 pl-3 pr-10 text-sm text-secondery-700 placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-secondary" 
+        className="w-full border border-gray-300 rounded-md py-2 pl-3 pr-10 text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-secondary" 
         placeholder="Search for products, categories or brands..."
         type="text"
       />
       <button aria-label="Search" className=" cursor-pointer absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-secondary transition-all duration-300">
-        <IoSearchOutline className='w-7 h-7' />
+        <IoSearchOutline className='text-white w-7 h-7' />
       </button>
     </div>
   </div>
@@ -38,17 +38,17 @@ const UserActions = () => (
   <div className="flex items-center gap-4 text-xs text-gray-600 select-none shrink-0">
     <div className="flex items-center gap-1 cursor-pointer hover:text-gray-900 whitespace-nowrap">
       <div className="flex items-center gap-x-2 leading-[1] hover:bg-secondary px-4 py-1 rounded-lg hover:text-white transition-all duration-300">
-        <FaRegUser className='h-5 w-5' />
-        <div className="sm:text-base">Sign In</div>
+        <FaRegUser className='text-white h-5 w-5' />
+        <div className="sm:text-base text-white">Sign In</div>
         <span>/</span>
-        <div className="font-semibold sm:text-base">Sign Up</div>
+        <div className="font-semibold sm:text-base text-white">Sign Up</div>
       </div>
     </div>
   </div>
 );
 
 const NavLink = ({ href, children }) => (
-  <a className="hover:bg-secondary hover:text-white px-2 sm:text-base rounded-sm transition-all duration-300 whitespace-nowrap" href={href}>
+  <a className="hover:bg-secondary hover:text-white text-white px-2 sm:text-base rounded-sm transition-all duration-300 whitespace-nowrap" href={href}>
     {children}
   </a>
 );
@@ -128,11 +128,11 @@ const CategoriesDropdown = () => {
           setIsOpen(!isOpen);
           setActiveSubMenu(null);
         }}
-        className="flex items-center gap-1 border border-gray-300 rounded-md px-3 py-2 text-gray-700 hover:bg-secondary hover:text-white transition-all duration-300 cursor-pointer"
+        className="flex items-center gap-1 border text-white border-gray-300 rounded-md px-3 py-2 hover:bg-secondary hover:text-white transition-all duration-300 cursor-pointer"
       >
         <span>All Categories</span>
         <MdOutlineKeyboardArrowDown
-          className={`text-base transition-transform ${isOpen ? "rotate-180" : ""}`}
+          className={`text-base text-white transition-transform ${isOpen ? "rotate-180" : ""}`}
         />
       </button>
 
@@ -181,7 +181,7 @@ const CategoriesDropdown = () => {
                   initial="hidden"
                   animate="visible"
                   exit="hidden"
-                  className="absolute left-full w-40 sm:w-[260px] bg-white rounded-2xl shadow-lg"
+                  className="absolute left-full w-40 sm:w-[260px] bg-white rounded-md shadow-lg"
                   style={{ top: `${subMenuTop}px` }}
                 >
                   {categories[activeSubMenu].subMenu.map((sub, subIndex) => (
@@ -209,10 +209,8 @@ const NavigationBar = () => (
       <CategoriesDropdown />
       {/* Links */}
       <NavLink href="#">Home</NavLink>
-      <NavLink href="#">Blog</NavLink>
       <NavLink href="#">Contact</NavLink>
       <NavLink href="#">About Us</NavLink>
-      <NavLink href="#">My account</NavLink>
       <div className="flex ml-auto sm:hidden">
         <UserActions/>
       </div>
@@ -222,7 +220,7 @@ const NavigationBar = () => (
 
 const Navbar = () => (
 
-  <header className='shadow-sm'>
+  <nav className='shadow-lg border-b border-white/20'>
     <div className="max-w-[1280px] mx-auto flex flex-wrap items-center justify-between gap-3 px-4 py-3">
       <Logo />
       <SearchBar />
@@ -231,7 +229,7 @@ const Navbar = () => (
       </div>
     </div>
     <NavigationBar />
-  </header>
+  </nav>
 );
 
 export default Navbar;

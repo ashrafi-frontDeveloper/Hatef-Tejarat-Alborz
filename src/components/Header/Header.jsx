@@ -46,7 +46,7 @@ export default function Header() {
        <Navbar />
       {/* baner */}
       <div className="flex flex-col items-center justify-center space-y-10 hero-section bg-cover bg-center bg-no-repeat h-[450px]">
-        <h3 className="text-secondary text-xl sm:text-3xl md:text-4xl font-bold shadow-2xl">Where quality combines with precision</h3>
+        <h3 className="text-white text-xl sm:text-3xl md:text-4xl font-bold shadow-2xl">Where quality combines with precision</h3>
         {/* media */}
         <SocialButtons />
       </div>

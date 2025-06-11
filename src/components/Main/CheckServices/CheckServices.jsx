@@ -38,8 +38,8 @@ const CheckServices = () => {
                 {services.map((service, index) => (
                     <div key={index} className="flex flex-col items-center p-6 border rounded-lg shadow-lg">
                         {service.icon}
-                        <h6 className="text-base font-semibold">{service.title}</h6>
-                        <p className="text-sm text-gray-600 text-center mt-2">{service.description}</p>
+                        <h6 className="text-base text-white font-semibold">{service.title}</h6>
+                        <p className="text-sm text-text text-center mt-2">{service.description}</p>
                     </div>
                 ))}
             </div>
