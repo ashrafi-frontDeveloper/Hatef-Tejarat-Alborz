@@ -5,6 +5,8 @@ import { IoSearchOutline } from "react-icons/io5";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { FaPlus } from "react-icons/fa6";
 import { FiMinus } from "react-icons/fi";
+import { Link, useNavigate } from 'react-router-dom';
+import productCategories from '../../../data/ProductData/ProductData';
 
 const Logo = () => (
   <div className="flex items-center gap-2 shrink-0">
@@ -35,16 +37,18 @@ const SearchBar = () => (
 );
 
 const UserActions = () => (
-  <div className="flex items-center gap-4 text-xs text-gray-600 select-none shrink-0">
-    <div className="flex items-center gap-1 cursor-pointer hover:text-gray-900 whitespace-nowrap">
-      <div className="flex items-center gap-x-2 leading-[1] hover:bg-secondary px-4 py-1 rounded-lg hover:text-white transition-all duration-300">
-        <FaRegUser className='text-white h-5 w-5' />
-        <div className="sm:text-base text-white">Sign In</div>
-        <span>/</span>
-        <div className="font-semibold sm:text-base text-white">Sign Up</div>
+  <Link to='/validations/register'>
+    <div className="flex items-center gap-4 text-xs text-gray-600 select-none shrink-0">
+      <div className="flex items-center gap-1 cursor-pointer hover:text-gray-900 whitespace-nowrap">
+        <div className="flex items-center gap-x-2 leading-[1] hover:bg-secondary px-4 py-1 rounded-lg hover:text-white transition-all duration-300">
+          <FaRegUser className='text-white h-5 w-5' />
+          <div className="sm:text-base text-white">Sign In</div>
+          <span>/</span>
+          <div className="font-semibold sm:text-base text-white">Sign Up</div>
+        </div>
       </div>
     </div>
-  </div>
+  </Link>
 );
 
 const NavLink = ({ href, children }) => (
@@ -82,6 +86,7 @@ const subMenuVariants = {
 };
 
 const CategoriesDropdown = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubMenu, setActiveSubMenu] = useState(null);
   const [subMenuTop, setSubMenuTop] = useState(0);
@@ -107,19 +112,7 @@ const CategoriesDropdown = () => {
     setSubMenuTop(adjustedTopPosition);
     setActiveSubMenu(index);
   };
-  const categories = [
-    // ... محتوای آرایه شما بدون تغییر باقی می‌ماند
-    { label: "Cold rolled carbon steel", subMenu: ['Cold rolled carbon steel sheet', 'Cold rolled carbon steel strip', 'Cold rolled carbon steel coil'] },
-    { label: "Hot rolled carbon steel", subMenu: ['Hot rolled carbon steel sheet', 'Hot rolled carbon steel coil', 'Hot rolled carbon steel strip'] },
-    { label: "Galvanized wire", subMenu: ['Carbon steel checkered sheet', 'Carbon steel checkered coil', 'Carbon steel patterned belt'] },
-    { label: "Galvanized steel", subMenu: ['Galvanized carbon steel sheet', 'Galvanized carbon steel coil', 'Galvanized carbon steel strip'] },
-    { label: "Color coated steel", subMenu: ['Color plate', 'Color roll'] },
-    { label: "Corrugated sheet", subMenu: ['Galvanized corrugated sheet', 'Color coated corrugated sheet'] },
-    { label: "Carbon Steel long product", subMenu: ['Carbon steel seamless pipe', 'Carbon steel round pipe', 'Cold rolled carbon steel pipe', 'Carbon steel square pipe'] },
-    { label: "Cold rolled carbon steel", subMenu: ['Carbon steel square bar', 'Carbon steel round bar', 'Anisotropic steel bar'] },
-    { label: "Carbon steel profile", subMenu: ['Carbon steel angle', 'Carbon steel channel', 'Carbon steel profile'] },
-    { label: "Stainless steel rod", subMenu: ['Stainless steel rebar', 'Stainless steel square bar', 'Stainless steel profiled bar'] },
-  ];
+
 
   return (
     <div className="relative">
@@ -136,7 +129,6 @@ const CategoriesDropdown = () => {
         />
       </button>
 
-      {/* ۳. استفاده از AnimatePresence برای مدیریت انیمیشن باز و بسته شدن */}
       <AnimatePresence>
         {isOpen && (
           // ۴. تبدیل div به motion.div و اعمال انیمیشن
@@ -149,34 +141,33 @@ const CategoriesDropdown = () => {
             className="absolute top-full left-0 mt-1 w-52 sm:w-[260px] bg-white border border-secondary rounded-md shadow-lg z-50"
           >
             <ul className="divide-y divide-gray-200 max-h-[400px] overflow-y-auto">
-              {categories.map((item, index) => (
-                <li key={index}>
-                  <div
-                    onClick={(e) => handleSubMenuToggle(e, index)}
-                    className="flex items-center justify-between gap-2 px-3 py-2 text-gray-700 hover:text-white hover:bg-secondary cursor-pointer"
-                  >
-                    <span>{item.label}</span>
-                    {item.subMenu && (
-                      <AnimatePresence mode="wait" initial={false}>
-                        <motion.span key={activeSubMenu === index ? 'minus' : 'plus'}>
-                          {activeSubMenu === index ? (
-                            <FiMinus className="text-[12px]" />
-                          ) : (
-                            <FaPlus className="text-[10px]" />
-                          )}
-                        </motion.span>
-                      </AnimatePresence>
-                    )}
-                  </div>
-                </li>
-              ))}
+                  {productCategories.map((item, index) => (
+                    <li key={index}>
+                      <div
+                        onClick={(e) => handleSubMenuToggle(e, index)}
+                        className="flex items-center justify-between gap-2 px-3 py-2 text-gray-700 hover:text-white hover:bg-secondary cursor-pointer"
+                      >
+                        <span>{item.category}</span>
+                        {item.products && (
+                          <AnimatePresence mode="wait" initial={false}>
+                            <motion.span key={activeSubMenu === index ? 'minus' : 'plus'}>
+                              {activeSubMenu === index ? (
+                                <FiMinus className="text-[12px]" />
+                              ) : (
+                                <FaPlus className="text-[10px]" />
+                              )}
+                            </motion.span>
+                          </AnimatePresence>
+                        )}
+                      </div>
+                    </li>
+                  ))}
             </ul>
 
             <AnimatePresence>
-              {activeSubMenu !== null && categories[activeSubMenu]?.subMenu && (
-                // ۵. تبدیل ul به motion.ul و اعمال انیمیشن منوی فرعی
+              {activeSubMenu !== null && productCategories[activeSubMenu]?.products && (
                 <motion.ul
-                  key={activeSubMenu} // کلید برای تشخیص تغییر منو توسط AnimatePresence
+                  key={activeSubMenu}
                   variants={subMenuVariants}
                   initial="hidden"
                   animate="visible"
@@ -184,17 +175,23 @@ const CategoriesDropdown = () => {
                   className="absolute left-full w-40 sm:w-[260px] bg-white rounded-md shadow-lg"
                   style={{ top: `${subMenuTop}px` }}
                 >
-                  {categories[activeSubMenu].subMenu.map((sub, subIndex) => (
+                  {productCategories[activeSubMenu].products.map((prod, subIndex) => (
                     <li
                       key={subIndex}
-                      className="px-3 py-2 text-[12px] text-gray-600 hover:bg-secondary hover:text-white transition-all"
+                      className="px-3 py-2 text-[12px] text-gray-600 hover:bg-secondary hover:text-white transition-all cursor-pointer"
+                      onClick={() => {
+                        navigate(`/products/details/${prod.slug}`);
+                        setIsOpen(false); // بسته شدن dropdown
+                        setActiveSubMenu(null);
+                      }}
                     >
-                      {sub}
+                      {prod.name}
                     </li>
                   ))}
                 </motion.ul>
               )}
             </AnimatePresence>
+
           </motion.div>
         )}
       </AnimatePresence>
@@ -208,9 +205,10 @@ const NavigationBar = () => (
       {/* Categories dropdown  */}
       <CategoriesDropdown />
       {/* Links */}
-      <NavLink href="#">Home</NavLink>
-      <NavLink href="#">Contact</NavLink>
-      <NavLink href="#">About Us</NavLink>
+      <NavLink href="/">Home</NavLink>
+      <NavLink href="/contact">Contact</NavLink>
+      <NavLink href="/about">About Us</NavLink>
+      <NavLink href="/verifications">Verifications</NavLink>
       <div className="flex ml-auto sm:hidden">
         <UserActions/>
       </div>

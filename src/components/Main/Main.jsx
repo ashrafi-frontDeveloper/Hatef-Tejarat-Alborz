@@ -16,9 +16,9 @@ export default function Main() {
           <Slider />
         </div>
         <CategorySlider />
-        <ProductList />
+        {/* <ProductList /> */}
+        {/* <WireProducts /> */}
         <SteelProducts />
-        <WireProducts />
         <Trusted />
     </div>
   )

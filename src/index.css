@@ -1,8 +1,9 @@
+/* @import "../node_modules/@syncfusion/ej2-base/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-react-popups/styles/material.css"; */
 @import "tailwindcss";
 @plugin "daisyui" {
   themes: all;
 }
-
 
 @theme {
     /* Color coustom */
@@ -23,4 +24,15 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/public/banner.jpg");
     background-size: cover;
     background-position: center;
+}
+
+.menu {
+  max-height: 200px; /* تنظیم ارتفاع */
+  overflow-y: auto;
+}
+
+/* مخفی کردن اسکرول‌بار */
+.menu::-webkit-scrollbar {
+  width: 4px;
+  display: none;
 }

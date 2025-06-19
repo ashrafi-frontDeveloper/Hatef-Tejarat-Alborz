@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Login() {
   return (
@@ -15,17 +16,17 @@ export default function Login() {
                     <span className="font-semibold text-lg select-none">Hatef Tejarat Alborz</span>
                 </div>
                 <h1 className="text-white text-2xl font-semibold mb-2">Login your Account</h1>
-                <a className="my-5 border-none outline-none btn btn-info bg-blue-600 hover:bg-blue-700 text-white px-4 py-1" href="#"> Register here.</a>
+                <Link to='/validations/register' className="my-5 border-none outline-none btn btn-info bg-blue-600 hover:bg-blue-700 text-white px-4 py-1">Register here.</Link>
                     <form className="max-w-sm mx-auto">
                         <div className='mt-5'>
                             <label className="block text-gray-400 text-xs font-semibold mb-1">Your email</label>
                             <input 
                                 className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                placeholder="name@company.com"
+                                placeholder="example@gmail.com"
                                 type="email"
                             />
                         </div>
-                        <div className='mt-5'>
+                        <div className='my-5'>
                             <label className="block text-gray-400 text-xs font-semibold mb-1">Your Password</label>
                             <input 
                                 className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -33,6 +34,7 @@ export default function Login() {
                                 type="password"
                             />
                         </div>
+                        <a href="#" className='text-sm text-gray-400 hover:underline transition'>Forget password?</a>
                         <div className="flex items-start my-10">
                             <div className="flex items-center h-5">
                             <input
