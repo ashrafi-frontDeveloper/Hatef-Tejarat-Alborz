@@ -15,15 +15,14 @@ import AddProduct from '../pages/AddProduct'
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/sales" element={<Sale />} />
-      <Route path="/new-users" element={<NewUser />} />
-      <Route path="/analytics" element={<Analytics />} />
-      <Route path="/orders" element={<Order />} />
-      <Route path="/add-product" element={<AddProduct />} />
-      <Route path="/products" element={<Products />} />
-      <Route path="/users" element={<Users />} />
-      {/* مسیر پیش‌فرض یا 404 */}
+      <Route path="/" element={<Home />} />             // به /admin می‌خوره
+      <Route path="sales" element={<Sale />} />         // به /admin/sales می‌خوره
+      <Route path="new-users" element={<NewUser />} />
+      <Route path="analytics" element={<Analytics />} />
+      <Route path="orders" element={<Order />} />
+      <Route path="add-product" element={<AddProduct />} />
+      <Route path="products" element={<Products />} />
+      <Route path="users" element={<Users />} />
       <Route path="*" element={<Analytics />} />
     </Routes>
   )

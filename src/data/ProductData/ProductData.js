@@ -158,9 +158,75 @@ const productCategories = [
     },
 
     {
+        id: 12,
+        category: "Corrugated Sheet",
+        slug: "corrugated-sheet",
+        introduce: "Corrugated sheet is a type of metal sheet formed into a series of parallel ridges and grooves for added strength and rigidity. It is commonly made from galvanized or color-coated steel.",
+        advantage: "High strength-to-weight ratio. Corrosion resistance (especially galvanized/color-coated types). Long lifespan with minimal maintenance.",
+        application: "Roofing and siding for industrial and residential buildings. Fencing and enclosure structures. Temporary construction shelters.",
+        img: "/images/categories/steel/Corrugated sheet/Corrugated sheet.jpg",
+        products: [
+        {
+            id: 101,
+            name: "Galvanized Corrugated Sheet",
+            slug: "galvanized-corrugated-sheet",
+            description: "Galvanization is the process of applying a protective zinc coating to steel or iron in order to prevent it from rusting.",
+            img: "/images/categories/steel/Corrugated sheet/GALVANIZED CORRUGATED SHEET.jpg",
+        },
+        {
+            id: 102,
+            name: "Color Coated Corrugated Sheet",
+            slug: "color-coated-corrugated-sheet",
+            description: "Color coated sheet is based on cold rolled steel and galvanized steel, after the surface pretreatment then it is coated on the surface with various coating.",
+            img: "/images/categories/steel/Corrugated sheet/COLOR COATED CORRUGATED SHEET.jpg",
+        },
+        ],
+    },
+
+    {
+        id: 13,
+        category: "Carbon Steel Long Products",
+        slug: "carbon-steel-long-products",
+        introduce: "Carbon steel long products include a variety of structural and tubular steel items made primarily from carbon steel.",
+        advantage: "Excellent structural integrity. Cost-effective solution for various industries. Suitable for welding and forming.",
+        application: "Oil and gas pipelines. Construction frames and supports. Automotive components and machinery.",
+        img: "/images/categories/steel/Carbon steel long products/Carbon steel long products.jpg",
+        products: [
+        {
+            id: 201,
+            name: "Carbon Steel Seamless Pipe",
+            slug: "carbon-steel-seamless-pipe",
+            description: "Carbon steel seamless pipe is a kind of long steel widely used as pipeline for conveying oil, natural gas, gas, water.",
+            img: "/images/categories/steel/Carbon steel long products/CARBON STEEL SEAMLESS PIPE.jpg",
+        },
+        {
+            id: 202,
+            name: "Carbon Steel Round Pipe",
+            slug: "carbon-steel-round-pipe",
+            description: "The raw material of carbon steel round pipe is round pipe blank, and the round pipe blank needs to be cut and processed by cutting machine, and the blank with a growth of about 1m.",
+            img: "/images/categories/steel/Carbon steel long products/CARBON STEEL ROUND PIPE.jpg",
+        },
+        {
+            id: 203,
+            name: "Carbon Steel Square Pipe",
+            slug: "pipe-carbon-steel-square-pipe",
+            description: "Square tube is a kind of light tube with hollow square section, also known as steel cold-formed profile.",
+            img: "/images/categories/steel/Carbon steel long products/CARBON STEEL SQUARE PIPE.jpg",
+        },
+        {
+            id: 204,
+            name: "Cold Rolled Carbon Steel Pipe",
+            slug: "cold-rolled-carbon-steel-pipe",
+            description: "Carbon steel are used extensively to make daily necessities such as automobiles,TV sets, airconditioners, refrigerators and tools. As our lifestyles improve significantly, the daily necessities become more diverse and upmarket.",
+            img: "/images/categories/steel/Carbon steel long products/COLD ROLLED CARBON STEEL PIPE.jpg",
+        },
+        ],
+    },
+
+    {
         id: 6,
-        category: "Cold Rolled Carbon Steel",
-        slug: "cold-rolled-carbon-steel",
+        category: "Cold Rolled Carbon Steel 1",
+        slug: "cold-rolled-carbon-steel-1",
         introduce: "Carbon steel rod is an alloy rod containing carbon and iron, with a carbon content up to 2.1% by weight. Carbon steel bars have good hardness and strength properties and they are cheaper than other steels.",
         advantage: "arbon steel rod is not only good, and the service time is long, which can effectively save cost and increase efficiency.",
         application: "The conveyor belt made of carbon steel rod is used as the traction and carrying component of belt conveyor.",
@@ -223,197 +289,6 @@ const productCategories = [
         ]
     },
 
-    // {
-    //     id: 8,
-    //     category: "Stainless Steel Bar",
-    //     slug: "stainless-steel-bar",
-    //     introduce: "According to the production process, stainless steel bars can be divided into hot rolling, forging and cold drawing. The specification of hot rolled stainless steel round steel is 5.5-250mm.",
-    //     advantage: "High corrosion resistance makes it suitable for use in harsh environments. It is resistant to fire and heat and resists scaling and maintains strength at high temperatures.",
-    //     application: "Widely used in hardware kitchenware, shipbuilding, petrochemical, machinery, medicine, energy, building decoration, nuclear power, aerospace, military and other industries.",
-    //     img: "/images/categories/steel/Stainless steel rod/Stainless steel rod.jpg",
-    //     products: [
-    //         {
-    //             id: 701,
-    //             name: "Stainless Steel Round Bar",
-    //             slug: "stainless-steel-round-bar",
-    //             description: "According to the processing methods, stainless steel bars are divided into: pressure processing steel and cutting processing steel. According to the structural characteristics, it can be divided into austenite type, austenite ferrite type, ferrite type, martensite type and precipitation hardening type.",
-    //             img: "/images/categories/steel/Stainless steel rod/STAINLESS STEEL ROUND BAR.jpg"
-    //         },
-    //         {
-    //             id: 702,
-    //             name: "Stainless Steel Square Bar",
-    //             slug: "stainless-steel-square-bar",
-    //             description: "Stainless steel square bar is a universal stainless steel material, and its rust resistance is stronger than that of 200 series stainless steel. High temperature resistance is also relatively good. Generally, the service temperature limit is less than 650 ℃.",
-    //             img: "/public/images/categories/steel/Stainless steel profile/Stainless steel profile.jpg"
-    //         },
-    //         {
-    //             id: 703,
-    //             name: "Stainless Steel Profiled Bar",
-    //             slug: "stainless-steel-profiled-bar",
-    //             description: "Hexagonal bar is a long strip of solid stainless steel with hexagonal section. Due to the characteristics of stainless steel hexagonal bar, it is widely used in marine, chemical industry, construction, etc.",
-    //             img: "/public/images/categories/steel/Stainless steel profile/Stainless steel profile.jpg"
-    //         }
-    //     ]
-    // },
-
-    {
-        id: 9,
-        category: "Stainless Steel Profile",
-        slug: "stainless-steel-profile",
-        introduce: "Stainless steel profiles are used in engineering construction. Based on the good corrosion resistance of stainless steel, it can permanently maintain the integrity of engineering design.",
-        advantage: "High strength and stable quality of steel plate, high temperature oxidation resistance and high strength, beautiful surface and diversified use possibilities.",
-        application: "It is mainly used for industrial production and manufacturing, such as automatic mechanical equipment, enclosure framework and customized by companies according to their own requirements.",
-        img: "/public/images/categories/steel/Stainless steel profile/Stainless steel profile.jpg",
-        products: [
-            {
-                id: 801,
-                name: "Stainless Steel Angle Steel",
-                slug: "stainless-steel-angle-steel",
-                description: "Angle steel which belongs to the construction of carbon structural steel, is a simple section of steel steel, and it is mainly used for metal components and workshop frame. Good weldability, plastic deformation and mechanical strength are required in use",
-                img: "/images/categories/steel/Stainless steel profile/STAINLESS STEEL ANGLE STEEL.jpg"
-            },
-            {
-                id: 802,
-                name: "Stainless Steel Profile",
-                slug: "stainless-steel-profiled-beam",
-                description: "The chemical composition of stainless steel I-beam belongs to the rolled steel series for general structure, and the main inspection indexes are C, Mn, P and s. The content varies according to different brands, and the approximate range is C < 0.08%, Mn: 2.0, P < 0.035%, s < 0.03%.",
-                img: "/images/categories/steel/Stainless steel profile/Stainless steel profile.jpg"
-            },
-            {
-                id: 803,
-                name: "Carbon Steel Pattern Belt",
-                slug: "carbon-steel-pattern-belt",
-                description: "The specification of the patterned steel strip is expressed by the basic thickness (excluding the thickness of the protruding edge), and there are 10 specifications of 2.5-8mm6",
-                img: "/images/categories/steel/Stainless steel profile/CARBON STEEL PATTERN BELT.jpg"
-            }
-        ]
-    },
-
-    // {
-    //     id: 10,
-    //     category: "Stainless steel profile",
-    //     slug: "stainless-steel-profile",
-    //     introduce: "Stainless steel profiles are used in engineering construction. Based on the good corrosion resistance of stainless steel, it can permanently maintain the integrity of engineering design.",
-    //     advantage: "High strength and stable quality of steel plate, high temperature oxidation resistance and high strength, beautiful surface and diversified use possibilities.",
-    //     application: "It is mainly used for industrial production and manufacturing, such as automatic mechanical equipment, enclosure framework and customized by companies according to their own requirements.",
-    //     img: "/images/categories/steel/Stainless steel profile/Stainless steel profile.jpg",
-    //     products: [
-    //         {
-    //             id: 901,
-    //             name: "Stainless steel angle steel",
-    //             slug: "stainless-steel-angle-steel",
-    //             description: "Angle steel which belongs to the construction of carbon structural steel, is a simple section of steel steel, and it is mainly used for metal components and workshop frame. Good weldability, plastic deformation and mechanical strength are required in use.",
-    //             img: "/public/images/categories/steel/Stainless steel profile/Stainless steel profile.jpg"
-    //         },
-    //         {
-    //             id: 902,
-    //             name: "Stainless steel profile",
-    //             slug: "stainless-steel-profile",
-    //             description: "The chemical composition of stainless steel I-beam belongs to the rolled steel series for general structure, and the main inspection indexes are C, Mn, P and s. The content varies according to different brands, and the approximate range is C < 0.08%, Mn: 2.0, P < 0.035%, s < 0.03%.",
-    //             img: "/images/categories/steel/Stainless steel profile/STAINLESS STEEL PROFILE1.jpg"
-    //         },
-    //         {
-    //             id: 903,
-    //             name: "Carbon steel pattern blet",
-    //             slug: "industrial-aluminum-profile",
-    //             description: "The specification of the patterned steel strip is expressed by the basic thickness (excluding the thickness of the protruding edge), and there are 10 specifications of 2.5-8mm.",
-    //             img: "/images/categories/steel/Stainless steel profile/CARBON STEEL PATTERN BELT.jpg"
-    //         }
-    //     ]
-    // },
-
-    {
-        id: 11,
-        category: "Aluminum Profile",
-        slug: "aluminum-profile",
-        introduce: "Aluminum profile refers to aluminum alloy profile. It is first processed into castings, forgings, plates, strips and profiles, and then made through cold bending, sawing, coloring and other processes.",
-        advantage: "Aluminum can show excellent corrosion resistance. The conductivity of aluminum is nearly twice that of copper. Aluminum profile is non-ferromagnetic and it has excellent machinability",
-        application: "Widely used in hardware kitchenware, shipbuilding, petrochemical, machinery, medicine, energy, building decoration, nuclear power, aerospace, military and other industries.",
-        img: "/images/categories/steel/aluminum profile/Aluminum Profile.jpg",
-        products: [
-            {
-                id: 901,
-                name: "Aluminum Angle Steel",
-                slug: "aluminum-angle-steel",
-                description: "Aluminum angle steel, commonly known as angle aluminum, is a long strip of aluminum with both sides perpendicular to each other. It can be divided into equal angle aluminum and unequal angle aluminum.",
-                img: "/images/categories/steel/aluminum profile/ALUMINUM ANGLE STEEL.jpg"
-            },
-            {
-                id: 902,
-                name: "Aluminum C-Channel",
-                slug: "aluminum-c-channel",
-                description: "Aluminum C-channel is perfect for store fixtures, displays, shower enclosures, windows, glass/mirror projects, chairs, elevators, framing and more.",
-                img: "/images/categories/steel/aluminum profile/ALUMINUM C-CHANNEL.jpg"
-            },
-            {
-                id: 903,
-                name: "Aluminum Profile",
-                slug: "industrial-aluminum-profile",
-                description: "Industrial aluminum profile is a material obtained by taking aluminum as the main alloy element and adding other alloy elements through heating, extrusion, surface treatment and other processes.",
-                img: "/images/categories/steel/aluminum profile/ALUMINUM PROFILE1.jpg"
-            }
-        ]
-    },
-
-    {
-    id: 12,
-    category: "Corrugated Sheet",
-    slug: "corrugated-sheet",
-    introduce: "Corrugated sheet is a type of metal sheet formed into a series of parallel ridges and grooves for added strength and rigidity. It is commonly made from galvanized or color-coated steel.",
-    advantage: "High strength-to-weight ratio. Corrosion resistance (especially galvanized/color-coated types). Long lifespan with minimal maintenance.",
-    application: "Roofing and siding for industrial and residential buildings. Fencing and enclosure structures. Temporary construction shelters.",
-    img: "/images/categories/steel/Corrugated sheet/Corrugated sheet.jpg",
-    products: [
-      {
-        id: 101,
-        name: "Galvanized Corrugated Sheet",
-        slug: "galvanized-corrugated-sheet",
-        description: "Galvanization is the process of applying a protective zinc coating to steel or iron in order to prevent it from rusting.",
-        img: "/images/categories/steel/Corrugated sheet/GALVANIZED CORRUGATED SHEET.jpg",
-      },
-      {
-        id: 102,
-        name: "Color Coated Corrugated Sheet",
-        slug: "color-coated-corrugated-sheet",
-        description: "Color coated sheet is based on cold rolled steel and galvanized steel, after the surface pretreatment then it is coated on the surface with various coating.",
-        img: "/images/categories/steel/Corrugated sheet/COLOR COATED CORRUGATED SHEET.jpg",
-      },
-    ],
-    },
-
-    {
-        id: 13,
-        category: "Carbon Steel Long Products",
-        slug: "carbon-steel-long-products",
-        introduce: "Carbon steel long products include a variety of structural and tubular steel items made primarily from carbon steel.",
-        advantage: "Excellent structural integrity. Cost-effective solution for various industries. Suitable for welding and forming.",
-        application: "Oil and gas pipelines. Construction frames and supports. Automotive components and machinery.",
-        img: "/images/categories/steel/Carbon steel long products/Carbon steel long products.jpg",
-        products: [
-        {
-            id: 201,
-            name: "Carbon Steel Seamless Pipe",
-            slug: "carbon-steel-seamless-pipe",
-            description: "Carbon steel seamless pipe is a kind of long steel widely used as pipeline for conveying oil, natural gas, gas, water.",
-            img: "/images/categories/steel/Carbon steel long products/CARBON STEEL SEAMLESS PIPE.jpg",
-        },
-        {
-            id: 202,
-            name: "Carbon Steel Round Pipe",
-            slug: "carbon-steel-round-pipe",
-            description: "Carbon steel round pipe needs to be cut and processed by cutting machine, the blank with a growth of about 1m.",
-            img: "/public/images/categories/steel/Carbon steel long products/CARBON STEEL ROUND PIPE.jpg",
-        },
-        {
-            id: 203,
-            name: "Pipe Carbon Steel Square Pipe",
-            slug: "pipe-carbon-steel-square-pipe",
-            description: "Square tube is a kind of light tube with hollow square section, also known as steel cold-formed profile.",
-            img: "/public/images/categories/steel/Carbon steel long products/CARBON STEEL SQUARE PIPE.jpg",
-        },
-        ],
-    },
-
     {
         id: 14,
         category: "Steel Sheet Pile",
@@ -449,7 +324,7 @@ const productCategories = [
             name: "Trench Sheets",
             slug: "trench-sheets",
             description: "Steel trough plates are available in a variety of profiles, lengths and steel types.",
-            img: "/public/images/categories/steel/Steel sheet pile/TRENCH SHEETS.jpg",
+            img: "/images/categories/steel/Steel sheet pile/TRENCH SHEETS.jpg",
         },
         ],
     },
@@ -481,24 +356,115 @@ const productCategories = [
     },
 
     {
-    id: 16,
-    category: "Guardrail",
-    slug: "guardrail",
-    introduce: "Guardrails are safety barriers designed to prevent vehicles or pedestrians from straying into dangerous or off-limit areas. They are available in various types for roads, bridges, and industrial zones.",
-    advantage: "Strong impact resistance. Customizable designs and materials. Long-term outdoor durability.",
-    application: "Highway and bridge safety. Industrial site protection. Pedestrian and property boundaries.",
-    img: "/images/categories/steel/Guardrail/Guardrail.jpg",
-    products: [
-    {
-        id: 501,
-        name: "Agricultural Guardrail",
-        slug: "agricultural-guardrail",
-        description: "Our company has advanced spraying assembly line and welding equipment, specializing in anti- collision guardrail, bridge guardrail, landscape, lighting, river isolation guardrail, stainless steel guardrail, stainless steel carbon steel composite pipe guardrail and all kinds of protection class guardrail production, complete specifications,support customized products you need.",
-        img: "/images/categories/steel/Guardrail/AGRICULTURAL GUARDRAIL, INDUSTRIAL GUARDRAIL.jpg",
+        id: 17,
+        category: "Color Plated Stainless Steel",
+        slug: "color-plated-stainless-steel",
+        introduce: "",
+        advantage: "",
+        application: "",
+        img: "/images/categories/steel/Color plated stainless steel/Color plated stainless steel.jpg",
+        products: [
+            {
+                id: 701,
+                name: "Color Plated Stainless Steel",
+                slug: "color-plated-stainless-steel-1",
+                description: "With the improvement of people's living standards and aesthetic standards, the traditional process of stainless steel has been unable to meet the needs of the people's life.Color stainless steel plating, arises at the historic moment.",
+                img: "/images/categories/steel/Color plated stainless steel/COLOR PLATED STAINLESS STEEL1.jpg",
+            },
+            {
+                id: 702,
+                name: "Color Plated Stainless Steel",
+                slug: "color-plated-stainless-steel-2",
+                description: "As a professional manufacturer of steel, we have mastered the new material surface treatment technology. According to customer's requirements, we can custom design rich, excellent quality of color plated stainless steel products.",
+                img: "/images/categories/steel/Color plated stainless steel/COLOR PLATED STAINLESS STEEL2.jpg",
+            },
+        ],
     },
-    ],
-    }
 
+    {
+        id: 9,
+        category: "Stainless Steel Profile",
+        slug: "stainless-steel-profile",
+        introduce: "Stainless steel profiles are used in engineering construction. Based on the good corrosion resistance of stainless steel, it can permanently maintain the integrity of engineering design.",
+        advantage: "High strength and stable quality of steel plate, high temperature oxidation resistance and high strength, beautiful surface and diversified use possibilities.",
+        application: "It is mainly used for industrial production and manufacturing, such as automatic mechanical equipment, enclosure framework and customized by companies according to their own requirements.",
+        img: "/public/images/categories/steel/Stainless steel profile/Stainless steel profile.jpg",
+        products: [
+            {
+                id: 801,
+                name: "Stainless Steel Angle Steel",
+                slug: "stainless-steel-angle-steel",
+                description: "Angle steel which belongs to the construction of carbon structural steel, is a simple section of steel steel, and it is mainly used for metal components and workshop frame. Good weldability, plastic deformation and mechanical strength are required in use",
+                img: "/images/categories/steel/Stainless steel profile/STAINLESS STEEL ANGLE STEEL.jpg"
+            },
+            {
+                id: 802,
+                name: "Stainless Steel Profile",
+                slug: "stainless-steel-profiled-beam",
+                description: "The chemical composition of stainless steel I-beam belongs to the rolled steel series for general structure, and the main inspection indexes are C, Mn, P and s. The content varies according to different brands, and the approximate range is C < 0.08%, Mn: 2.0, P < 0.035%, s < 0.03%.",
+                img: "/images/categories/steel/Stainless steel profile/Stainless steel profile.jpg"
+            },
+            {
+                id: 803,
+                name: "Carbon Steel Pattern Belt",
+                slug: "carbon-steel-pattern-belt",
+                description: "The specification of the patterned steel strip is expressed by the basic thickness (excluding the thickness of the protruding edge), and there are 10 specifications of 2.5-8mm6",
+                img: "/images/categories/steel/Stainless steel profile/CARBON STEEL PATTERN BELT.jpg"
+            }
+        ]
+    },
+
+    {
+        id: 11,
+        category: "Aluminum Profile",
+        slug: "aluminum-profile",
+        introduce: "Aluminum profile refers to aluminum alloy profile. It is first processed into castings, forgings, plates, strips and profiles, and then made through cold bending, sawing, coloring and other processes.",
+        advantage: "Aluminum can show excellent corrosion resistance. The conductivity of aluminum is nearly twice that of copper. Aluminum profile is non-ferromagnetic and it has excellent machinability",
+        application: "Widely used in hardware kitchenware, shipbuilding, petrochemical, machinery, medicine, energy, building decoration, nuclear power, aerospace, military and other industries.",
+        img: "/images/categories/steel/aluminum profile/Aluminum Profile.jpg",
+        products: [
+            {
+                id: 901,
+                name: "Aluminum Angle Steel",
+                slug: "aluminum-angle-steel",
+                description: "Aluminum angle steel, commonly known as angle aluminum, is a long strip of aluminum with both sides perpendicular to each other. It can be divided into equal angle aluminum and unequal angle aluminum.",
+                img: "/images/categories/steel/aluminum profile/ALUMINUM ANGLE STEEL.jpg"
+            },
+            {
+                id: 902,
+                name: "Aluminum C-Channel",
+                slug: "aluminum-c-channel",
+                description: "Aluminum C-channel is perfect for store fixtures, displays, shower enclosures, windows, glass/mirror projects, chairs, elevators, framing and more.",
+                img: "/images/categories/steel/aluminum profile/ALUMINUM C-CHANNEL.jpg"
+            },
+            {
+                id: 903,
+                name: "Aluminum Profile",
+                slug: "industrial-aluminum-profile",
+                description: "Industrial aluminum profile is a material obtained by taking aluminum as the main alloy element and adding other alloy elements through heating, extrusion, surface treatment and other processes.",
+                img: "/images/categories/steel/aluminum profile/ALUMINUM PROFILE1.jpg"
+            }
+        ]
+    },
+
+    {
+        id: 16,
+        category: "Guardrail",
+        slug: "guardrail",
+        introduce: "Guardrails are safety barriers designed to prevent vehicles or pedestrians from straying into dangerous or off-limit areas. They are available in various types for roads, bridges, and industrial zones.",
+        advantage: "Strong impact resistance. Customizable designs and materials. Long-term outdoor durability.",
+        application: "Highway and bridge safety. Industrial site protection. Pedestrian and property boundaries.",
+        img: "/images/categories/steel/Guardrail/Guardrail.jpg",
+        products: [
+            {
+                id: 501,
+                name: "Agricultural Guardrail",
+                slug: "agricultural-guardrail",
+                description: "Our company has advanced spraying assembly line and welding equipment, specializing in anti- collision guardrail, bridge guardrail, landscape, lighting, river isolation guardrail, stainless steel guardrail, stainless steel carbon steel composite pipe guardrail and all kinds of protection class guardrail production, complete specifications,support customized products you need.",
+                img: "/images/categories/steel/Guardrail/AGRICULTURAL GUARDRAIL, INDUSTRIAL GUARDRAIL.jpg",
+            },
+        ],
+    },
 ];
 
 

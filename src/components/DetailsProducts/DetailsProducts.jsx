@@ -91,7 +91,7 @@ export default function DetailsProducts() {
                     to={`/products/details/${related.slug}`}
                     className="inline-block mt-2 text-sm px-3 py-1 bg-secondary text-white rounded"
                   >
-                    View
+                    View Details
                   </Link>
                 </div>
               ))}

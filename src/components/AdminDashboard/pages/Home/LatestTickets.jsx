@@ -37,7 +37,6 @@ const tickets = [
 ];
 
 export default function LatestTickets() {
-
   const statusColors = {
     Pending: 'text-yellow-600 bg-yellow-100',
     Approved: 'text-green-600 bg-green-100',
@@ -47,7 +46,9 @@ export default function LatestTickets() {
   return (
     <div className="bg-base-300 p-4 rounded-2xl shadow-md">
       <h2 className="text-xl font-semibold mb-4">Latest Tickets</h2>
-      <div className="overflow-x-auto">
+
+      {/* حالت دسکتاپ */}
+      <div className="hidden md:block overflow-x-auto">
         <table className="w-full text-sm text-left">
           <thead className="text-white border-b">
             <tr>
@@ -74,6 +75,23 @@ export default function LatestTickets() {
             ))}
           </tbody>
         </table>
+      </div>
+
+      {/* حالت موبایل */}
+      <div className="md:hidden space-y-4">
+        {tickets.map(ticket => (
+          <div key={ticket.id} className="bg-base-100 p-4 rounded-xl shadow border border-base-200">
+            <div className="text-sm"><span className="font-semibold">User:</span> {ticket.user}</div>
+            <div className="text-sm"><span className="font-semibold">Product:</span> {ticket.product}</div>
+            <div className="text-sm"><span className="font-semibold">Quantity:</span> {ticket.quantity}</div>
+            <div className="text-sm"><span className="font-semibold">Date:</span> {ticket.date}</div>
+            <div className="text-sm mt-1">
+              <span className={`px-3 py-1 rounded-full text-xs font-medium ${statusColors[ticket.status]}`}>
+                {ticket.status}
+              </span>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

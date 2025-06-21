@@ -30,19 +30,19 @@ function Links({ isOpen }) {
     {
       title: "Dashboard",
       items: [
-        { icon: <TiHome className='w-5 h-5' />, label: 'Home', path: '/' },
-        { icon: <SiGoogleanalytics className='w-4 h-4' />, label: 'Analytics', path: '/analytics' },
-        { icon: <IoAnalytics className='w-5 h-5' />, label: 'Sales', path: '/sales' },
+        { icon: <TiHome className='w-5 h-5' />, label: 'Home', path: '/admin' },
+        { icon: <SiGoogleanalytics className='w-4 h-4' />, label: 'Analytics', path: '/admin/analytics' },
+        { icon: <IoAnalytics className='w-5 h-5' />, label: 'Sales', path: '/admin/sales' },
       ],
     },
     {
       title: "Quick Menu",
       items: [
-        { icon: <FaUser className='w-5 h-5' />, label: 'Users', path: '/users' },
-        { icon: <FaUserPlus className='w-5 h-5' />, label: 'New Users', path: '/new-users' },
-        { icon: <IoStorefrontSharp className='w-5 h-5' />, label: 'Products', path: '/products' },
-        { icon: <TbBasketPlus className='w-5 h-5' />, label: 'Add Products', path: '/add-product' },
-        { icon: <RiTelegram2Fill className='w-5 h-5' />, label: 'Order', path: '/orders' },
+        { icon: <FaUser className='w-5 h-5' />, label: 'Users', path: '/admin/users' },
+        { icon: <FaUserPlus className='w-5 h-5' />, label: 'New Users', path: '/admin/new-users' },
+        { icon: <IoStorefrontSharp className='w-5 h-5' />, label: 'Products', path: '/admin/products' },
+        { icon: <TbBasketPlus className='w-5 h-5' />, label: 'Add Products', path: '/admin/add-product' },
+        { icon: <RiTelegram2Fill className='w-5 h-5' />, label: 'Order', path: '/admin/orders' },
       ],
     },
   ]
@@ -97,7 +97,7 @@ export default function Sidbar() {
             </a>
             <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box w-32 p-3 space-y-2 shadow-sm">
               <a href="#" className="flex items-center gap-x-2"><IoLogOut className="w-5 h-5" /> LogOut</a>
-              <a href="#" className="flex items-center gap-x-2"><TiHome className="w-5 h-5" /> Home</a>
+              <Link to="/" className="flex items-center gap-x-2"><TiHome className="w-5 h-5" /> Home</Link>
             </ul>
           </div>
         </div>

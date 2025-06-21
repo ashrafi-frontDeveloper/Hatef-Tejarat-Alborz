@@ -7,24 +7,24 @@ import { FaUsers, FaShoppingCart, FaUserPlus } from 'react-icons/fa';
 const statsData = [
   {
     title: 'Customers',
-    value: 1345,
+    value: 241,
     icon: <FaUsers className="text-blue-500" />,
   },
   {
     title: 'Orders',
-    value: 892,
+    value: 365,
     icon: <FaShoppingCart className="text-red-500" />,
   },
   {
     title: 'Signups',
-    value: 241,
+    value: 1325,
     icon: <FaUserPlus className="text-green-500" />,
   },
 ];
 
 const StatsCards = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-5">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 py-5">
       {statsData.map((stat, index) => (
         <div key={index} className="bg-base-300 p-6 rounded-xl shadow-md">
           <div className="text-white font-semibold mb-1 flex items-center gap-2">
