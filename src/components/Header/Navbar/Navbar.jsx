@@ -210,10 +210,11 @@ const NavigationBar = () => (
       {/* Categories dropdown  */}
       <CategoriesDropdown />
       {/* Links */}
-      <NavLink href="/">Home</NavLink>
-      <NavLink href="/contact">Contact</NavLink>
-      <NavLink href="/about">About Us</NavLink>
-      <NavLink href="/verifications">Verifications</NavLink>
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="contact">Contact</NavLink>
+      <NavLink to="about">About Us</NavLink>
+      <NavLink to="verifications">Verifications</NavLink>
+
       <div className="flex ml-auto sm:hidden">
         <UserActions/>
       </div>

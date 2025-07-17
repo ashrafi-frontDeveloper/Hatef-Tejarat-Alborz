@@ -34,7 +34,7 @@ export default function App() {
       {location.pathname === '/' && <MainHeader />}
 
       <Suspense fallback={<div className="p-10 text-center text-gray-400"><FullPageLoader /></div>}>
-        <Routes>
+        {/* <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/validations/*" element={<Validations />} />
           <Route path="/order" element={<Order />} />
@@ -48,7 +48,24 @@ export default function App() {
           <Route path="/products/category/:categorySlug" element={<CategoryDetails />} />
 
           <Route path="/admin/*" element={<AdminDashboard />} />
+        </Routes> */}
+        <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="about" element={<AboutUs />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="order" element={<Order />} />
+            <Route path="validations/*" element={<Validations />} />
+            <Route path="verifications" element={<Verifications />} />
+
+
+            <Route path="products/steel" element={<AllProductsSteel />} />
+            <Route path="products/wire" element={<AllProductsWire />} />
+            <Route path="products/details/:category" element={<DetailsProducts />} />
+            <Route path="products/category/:categorySlug" element={<CategoryDetails />} />
+
+            <Route path="admin/*" element={<AdminDashboard />} />
         </Routes>
+
       </Suspense>
 
     {!location.pathname.startsWith('/admin') && <Footer />}

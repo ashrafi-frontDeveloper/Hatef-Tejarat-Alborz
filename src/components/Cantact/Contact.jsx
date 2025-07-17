@@ -53,7 +53,7 @@ export default function Contact() {
             <div className="flex lg:flex-row flex-col space-y-10 items-center px-40">
                 {/* logo */}
                 <div className="">
-                    <img src="/public/Logo-HTA.png" className='w-full lg:w-1/2 h-full lg:h-1/2 rounded-full' alt="" />
+                    <img src={`${import.meta.env.BASE_URL}Logo-HTA.png`}  className='w-full lg:w-1/2 h-full lg:h-1/2 rounded-full' alt="" />
                 </div>
 
                 {/* info comany */}
