@@ -9,9 +9,7 @@
         sessionStorage.removeItem("redirect");
         window.location.replace(redirect);
       }
-      // ذخیره مسیر جاری
       sessionStorage.redirect = location.pathname + location.search + location.hash;
-      // ریدایرکت به روت اپ (با مسیر پروژه در گیت‌هاب)
       location.replace("/Hatef-Tejarat-Alborz/");
     </script>
   </head>
