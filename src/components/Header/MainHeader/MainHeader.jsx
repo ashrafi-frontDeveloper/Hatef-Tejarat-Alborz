@@ -6,11 +6,12 @@ import { Link } from "react-router-dom";
 gsap.registerPlugin(ScrollTrigger);
 
 const demoProducts = [
-  { id: 1, title: "Carbon Steel Long Products", img: "images/slider/close-up-metallic-pipes.jpg" },
-  { id: 2, title: "Cold Rolled Carbon Steel Pipe", img: "images/slider/metals-4.jpg" },
-  { id: 3, title: "Cold Rolled Carbon Steel Sheet", img: "images/slider/bg-metals.jpg" },
-  { id: 4, title: "Galvanized wire", img: "images/categories/steel/Galvanized wire/Galvanized-wire.jpg" },
+  { id: 1, title: "Carbon Steel Long Products", img: `${import.meta.env.BASE_URL}images/slider/close-up-metallic-pipes.jpg` },
+  { id: 2, title: "Cold Rolled Carbon Steel Pipe", img: `${import.meta.env.BASE_URL}images/slider/metals-4.jpg` },
+  { id: 3, title: "Cold Rolled Carbon Steel Sheet", img: `${import.meta.env.BASE_URL}images/slider/bg-metals.jpg` },
+  { id: 4, title: "Galvanized wire", img: `${import.meta.env.BASE_URL}images/categories/steel/Galvanized wire/Galvanized-wire.jpg` },
 ];
+
 
 export default function MainHeader() {
   const titleRef = useRef(null);

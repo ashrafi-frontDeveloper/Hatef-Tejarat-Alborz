@@ -13,7 +13,7 @@ const Logo = () => (
     <img 
       alt="JinStore logo with a smiling box icon" 
       className="w-10 h-10 bg-white rounded-full" 
-      src="/Logo-HTA.png" 
+      src={`${import.meta.env.BASE_URL}Logo-HTA.png`} 
       width="32"
       height="32"
     />
