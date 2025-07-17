@@ -17,7 +17,7 @@ const Logo = () => (
       width="32"
       height="32"
     />
-    <span className="font-semibold text-lg select-none whitespace-nowrap text-white">Hatef Tejarat Alborz</span>
+    <span className="font-semibold text-lg select-none text-neutral whitespace-nowrap">Hatef Tejarat Alborz</span>
   </div>
 );
 
@@ -25,40 +25,45 @@ const SearchBar = () => (
   <div className="flex-1 min-w-[180px] max-w-full sm:max-w-[600px]">
     <div className="relative">
       <input 
-        className="w-full border border-gray-300 rounded-md py-2 pl-3 pr-10 text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-secondary" 
+        className="w-full border border-neutral rounded-md py-2 pl-3 pr-10 text-sm placeholder-neutral-400 
+                   focus:outline-none transition duration-300"
         placeholder="Search for products, categories or brands..."
         type="text"
       />
-      <button aria-label="Search" className=" cursor-pointer absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-secondary transition-all duration-300">
-        <IoSearchOutline className='text-white w-7 h-7' />
+      <button 
+        aria-label="Search" 
+        className="cursor-pointer absolute right-2 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-secondary transition duration-300"
+      >
+        <IoSearchOutline className='w-6 h-6' />
       </button>
     </div>
   </div>
 );
 
 const UserActions = () => (
-  <Link to='/validations/register'>
-    <div className="flex items-center gap-4 text-xs text-gray-600 select-none shrink-0">
-      <div className="flex items-center gap-1 cursor-pointer hover:text-gray-900 whitespace-nowrap">
-        <div className="flex items-center gap-x-2 leading-[1] hover:bg-secondary px-4 py-1 rounded-lg hover:text-white transition-all duration-300">
-          <FaRegUser className='text-white h-5 w-5' />
-          <div className="sm:text-base text-white">Sign In</div>
-          <span>/</span>
-          <div className="font-semibold sm:text-base text-white">Sign Up</div>
+  <>
+    <div className="flex items-center gap-x-5">
+      {/* btn register */}
+      <Link to='/validations/register'>
+        <div className="btn btn-neutral flex items-center gap-4 text-xs text-primary select-none shrink-0">
+          <div className="flex items-center gap-1 cursor-pointer whitespace-nowrap">
+            <div className="flex items-center gap-x-2 leading-[1] px-4 py-1 rounded-lg transition-all duration-300">
+              <FaRegUser className=' h-5 w-5' />
+              <div className="sm:text-base ">Sign In</div>
+            </div>
+          </div>
         </div>
-      </div>
+      </Link>
     </div>
-  </Link>
+  </>
 );
 
 const NavLink = ({ href, children }) => (
-  <a className="hover:bg-secondary hover:text-white text-white px-2 sm:text-base rounded-sm transition-all duration-300 whitespace-nowrap" href={href}>
+  <a className="btn btn-soft hover:bg-neutral hover:text-primary px-5 sm:text-base rounded-4xl transition-all duration-500 whitespace-nowrap" href={href}>
     {children}
   </a>
 );
 
-
-// ۲. تعریف متغیرهای انیمیشن برای خوانایی بهتر
 const mainMenuVariants = {
   hidden: {
     opacity: 0,
@@ -121,11 +126,11 @@ const CategoriesDropdown = () => {
           setIsOpen(!isOpen);
           setActiveSubMenu(null);
         }}
-        className="flex items-center gap-1 border text-white border-gray-300 rounded-md px-3 py-2 hover:bg-secondary hover:text-white transition-all duration-300 cursor-pointer"
+        className="btn btn-neutral text-primary flex items-center gap-1 rounded-4xl px-5 py-2 hover:bg-neutral hover:text-primary transition-all duration-300 cursor-pointer"
       >
         <span>All Categories</span>
         <MdOutlineKeyboardArrowDown
-          className={`text-base text-white transition-transform ${isOpen ? "rotate-180" : ""}`}
+          className={`text-base transition-transform ${isOpen ? "rotate-180" : ""}`}
         />
       </button>
 
@@ -138,14 +143,14 @@ const CategoriesDropdown = () => {
             initial="hidden"
             animate="visible"
             exit="hidden"
-            className="absolute top-full left-0 mt-1 w-52 sm:w-[260px] bg-white border border-secondary rounded-md shadow-lg z-50"
+            className="absolute top-full left-0 mt-1 w-52 sm:w-[260px] bg-white border border-primary rounded-md shadow-lg z-50"
           >
-            <ul className="divide-y divide-gray-200 max-h-[400px] overflow-y-auto">
+            <ul className="divide-y divide-neutral-300 max-h-[400px] overflow-y-auto">
                   {productCategories.map((item, index) => (
                     <li key={index}>
                       <div
                         onClick={(e) => handleSubMenuToggle(e, index)}
-                        className="flex items-center justify-between gap-2 px-3 py-2 text-gray-700 hover:text-white hover:bg-secondary cursor-pointer"
+                        className="flex items-center justify-between gap-2 px-3 py-2 text-neutral hover:bg-neutral hover:text-primary cursor-pointer"
                       >
                         <span>{item.category}</span>
                         {item.products && (
@@ -178,7 +183,7 @@ const CategoriesDropdown = () => {
                   {productCategories[activeSubMenu].products.map((prod, subIndex) => (
                     <li
                       key={subIndex}
-                      className="px-3 py-2 text-[12px] text-gray-600 hover:bg-secondary hover:text-white transition-all cursor-pointer"
+                      className="px-3 py-2 text-[12px] text-neutral hover:bg-neutral hover:text-primary transition-all cursor-pointer"
                       onClick={() => {
                         navigate(`/products/details/${prod.slug}`);
                         setIsOpen(false); // بسته شدن dropdown
@@ -201,7 +206,7 @@ const CategoriesDropdown = () => {
 
 const NavigationBar = () => (
   <nav className="max-w-[1280px] mx-auto border-t border-gray-200 px-4">
-    <div className="flex flex-wrap items-center gap-3 py-2 text-[13px] font-semibold text-gray-700 select-none">
+    <div className="flex flex-wrap items-center gap-3 py-2 text-[13px] font-semibold text-neutral select-none">
       {/* Categories dropdown  */}
       <CategoriesDropdown />
       {/* Links */}

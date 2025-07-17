@@ -4,8 +4,8 @@ import Contact from '../Cantact/Contact'
 export default function AboutUs() {
   return (
         <div className="max-[1280px] mx-auto px-4 sm:px-6 lg:px-8 my-20">
-            <div className="flex flex-col items-center justify-center px-40 bg-base-300 py-7 rounded-4xl">
-                <h2 className="text-7xl">Hatef Tejarat Alborz</h2>
+            <div className="flex flex-col items-center justify-center px-7 md:px-20 xl:px-40 bg-base-300 py-7 rounded-4xl">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-7xl">Hatef Tejarat Alborz</h2>
                 {/* about comany */}
                 <div className="mt-7 space-y-7">
                     {/* intro */}

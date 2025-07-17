@@ -41,7 +41,7 @@ function MaterialSelector() {
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 flex justify-between items-center"
+        className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none flex justify-between items-center"
       >
         <span>{selectedMaterial || "Choose a material"}</span>
         {/* arrow down */}
@@ -50,13 +50,13 @@ function MaterialSelector() {
 
       {/* Materials list */}
       {isOpen && (
-        <div className="absolute z-10 w-full mt-1 bg-[#283445] rounded-md shadow-lg top-full">
+        <div className="absolute z-10 w-full mt-1 bg-neutral rounded-md shadow-lg top-full">
           {/* search */}
           <div className="p-2">
             <input 
               type="text"
               placeholder="Search..."
-              className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="w-full bg-neutral text-gray-300 text-sm rounded-md px-3 py-1.5 focus:outline-none focus:ring-1 focus:ring-primary"
               onChange={(e) => setSearchTerm(e.target.value)}
               autoFocus
             />
@@ -68,7 +68,7 @@ function MaterialSelector() {
               filteredMaterials.map((material, index) => (
                 <li
                   key={index}
-                  className="px-3 py-2 text-sm text-gray-300 cursor-pointer hover:bg-blue-600"
+                  className="px-3 py-2 text-sm text-gray-300 hover:text-neutral cursor-pointer hover:bg-primary transition-colors duration-300 font-medium"
                   onClick={() => handleSelectMaterial(material)}
                 >
                   {material}
@@ -87,18 +87,18 @@ function MaterialSelector() {
 export default function Order() {
   return (
           <div className="min-h-screen flex items-center justify-center p-6">
-              <section className="max-w-2xl w-full text-white shadow-2xl px-7 py-5 border border-white/5 rounded-xl">
+              <section className="max-w-2xl w-full text-neutral shadow-2xl px-7 py-5 border border-white/5 rounded-xl">
                   <div className="flex items-center space-x-2 mb-6">
                       <img 
                           alt="Flowbite logo, blue circular icon with white swirl inside"
-                          className=" bg-white rounded-full w-6 h-6"
+                          className=" bg-white rounded-full w-8 h-8"
                           height="24"
                           src="/Logo-HTA.png"
                           width="24"
                       />
                       <span className="font-semibold text-lg select-none">Hatef Tejarat Alborz</span>
                   </div>
-                  <h1 className="text-white text-2xl font-semibold mb-2">Business enquiry form for international orders</h1>
+                  <h1 className="text-neutral text-2xl font-semibold mb-2">Business enquiry form for international orders</h1>
                   <p className="">Dear customer! Thank you for your interest in our company. If you have an enquiry for material purchasing we will be glad to discuss it after filling the form below.</p>
 
                   <form className="space-y-4">
@@ -106,31 +106,31 @@ export default function Order() {
                       {/* 1 */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">Name of the applicant:</label>
+                              <label className="block text-neutral text-xs font-semibold mb-1">Name of the applicant:</label>
                               <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                  className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                   placeholder="full name"
                                   type="text"
                               />
                           </div>
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">The company represented by the applicant:</label>
-                              <textarea className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+                              <label className="block text-neutral text-xs font-semibold mb-1">The company represented by the applicant:</label>
+                              <textarea className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"/>
                           </div>
                       </div>
                       {/* 2 */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">The company represented by the applicant:</label>
-                              <select className='w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500' name="">
+                              <label className="block text-neutral text-xs font-semibold mb-1">The company represented by the applicant:</label>
+                              <select className='w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none' name="">
                                   <option value="intermediary">Intermediary</option>
                                   <option value="end-user">End-user</option>
                               </select>
                           </div>
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">E-mail:</label>
+                              <label className="block text-neutral text-xs font-semibold mb-1">E-mail:</label>
                               <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                  className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                   placeholder="example@gmail.com"
                                   type="email"
                               />
@@ -139,16 +139,16 @@ export default function Order() {
                       {/* 3 */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">Phone number:</label>
+                              <label className="block text-neutral text-xs font-semibold mb-1">Phone number:</label>
                               <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                  className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                   placeholder="+1 759846"
                                   type="text"
                               />
                           </div>
                             <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">Cargo order type:</label>
-                              <select className='w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500' name="">
+                              <label className="block text-neutral text-xs font-semibold mb-1">Cargo order type:</label>
+                              <select className='w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none' name="">
                                   <option value="intermediary">EXW</option>
                                   <option value="end-user">FOB</option>
                                   <option value="end-user">CFR</option>
@@ -163,12 +163,12 @@ export default function Order() {
                         {/* 6 */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label className="block text-gray-400 text-xs font-semibold mb-1">Required Steel and Wire material:</label>
+                                <label className="block text-neutral text-xs font-semibold mb-1">Required Steel and Wire material:</label>
                                 <MaterialSelector />
                             </div>
                             <div>
-                                <label className="block text-gray-400 text-xs font-semibold mb-1">Others (please specify):</label>
-                                <textarea className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                                <label className="block text-neutral text-xs font-semibold mb-1">Others (please specify):</label>
+                                <textarea className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none" />
                             </div>
                         </div>
                     
@@ -176,25 +176,25 @@ export default function Order() {
                         {/* 7 */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label className="block text-gray-400 text-xs font-semibold mb-1">Final material application/What is the material used for?</label>
-                                <textarea className='w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500' name="" id=""></textarea>
+                                <label className="block text-neutral text-[11.5px] font-semibold mb-1">Final material application/What is the material used for?</label>
+                                <textarea className='w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none' name="" id=""></textarea>
                             </div>
                             <div>
-                                <label className="block text-gray-400 text-xs font-semibold mb-1">Required volume per month:</label>
-                                <input type="text" className="w-full mt-4 bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                                <label className="block text-neutral text-xs font-semibold mb-1">Required volume per month:</label>
+                                <input type="text" className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none" />
                             </div>
                         </div>
 
                         {/* 8 */}
                         <div className="grid grid-cols-1 gap-4">
                             <div className=''>
-                                <label className="block text-gray-400 text-xs font-semibold mb-1">Other Information (300 characters):</label>
-                                <textarea className='w-full h-36 bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500' name="" id=""></textarea>
+                                <label className="block text-neutral text-xs font-semibold mb-1">Other Information (300 characters):</label>
+                                <textarea className='w-full h-36 input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none' name="" id=""></textarea>
                             </div>
                         </div>
                       
 
-                      <a href='#' className="w-full inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md py-2 text-sm transition">
+                      <a href='#' className="btn btn-outline w-full inline-flex items-center justify-center hover:bg-neutral text-neutral hover:text-primary font-semibold rounded-md py-2 text-sm transition duration-300">
                           Applay
                       </a>
                       

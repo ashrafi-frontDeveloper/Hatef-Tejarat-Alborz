@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -10,7 +11,18 @@ import { Link } from "react-router-dom";
 export default function CategorySlider() {
   return (
     <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 mt-20">
-      <h2 className="text-xl font-bold text-white mb-4">Categories</h2>
+      {/* <h2 className="text-xl font-bold text-neutral mb-4">Categories</h2> */}
+
+      <motion.h2
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-2xl sm:text-3xl font-bold text-neutral mb-6"
+      >
+        Categories
+      </motion.h2>
+
+
 
       <Swiper
         slidesPerView={3}
@@ -28,12 +40,14 @@ export default function CategorySlider() {
         {productCategories.map((cat, index) => (
           <SwiperSlide key={index} className="mb-14">
             <Link to={`/products/category/${cat.slug}`}>
-              <div className="flex flex-col items-center text-center group py-2 transition-all duration-300 hover:scale-105 cursor-pointer">
-                <div className="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center text-2xl shadow-md group-hover:bg-Neutral868686 group-hover:text-white transition-colors">
-                  <img src={cat.img} alt={cat.category} className="w-20 h-20 rounded-full" />
-                </div>
-                <p className="text-xs font-medium text-white mt-2">{cat.category}</p>
+            <div className="flex flex-col items-center text-center group py-2 transition-all duration-300 hover:scale-105 hover:text-primary cursor-pointer">
+              <div className="w-20 h-20 rounded-full overflow-hidden shadow-lg group-hover:shadow-primary transition-shadow duration-300">
+                <img src={cat.img} alt={cat.category} className="w-full h-full object-cover" />
               </div>
+              <p className="text-xs font-medium text-neutral mt-5 group-hover:text-primary group-hover:bg-neutral px-1 py-0.5 rounded-2xl transition-colors duration-500">
+                {cat.category}
+              </p>
+            </div>
             </Link>
           </SwiperSlide>
         ))}

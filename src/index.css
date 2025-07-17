@@ -1,17 +1,19 @@
-/* @import "../node_modules/@syncfusion/ej2-base/styles/material.css";
-@import "../node_modules/@syncfusion/ej2-react-popups/styles/material.css"; */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 @import "tailwindcss";
 @plugin "daisyui" {
   themes: all;
 }
 
+
 @theme {
     /* Color coustom */
-    --color-primary: #FA541C;
-    --color-primary-400: #FB7649;
-    --color-primaryBack : #FEEEE8;
-    --color-background: #FFFFFF;
-    --color-secondary: #032340;
+    /* --color-primary: #2563EB;
+    --color-background: #f9f9f9 ;
+    --color-secondary: #F97316;
     --color-secondery-700: #021425;
     --color-secondaryBack: #EBF5FF;
     --color-secondaryCBCBCB: #CBCBCB;
@@ -19,11 +21,25 @@
     --color-Neutral: #f9f9f9;
     --color-NeutralSecondory :#606060;
     --color-Neutral868686: #868686;
+    --color-surface: #CBD5E1;
+    --color-text: #1E293B; */
 }
-.hero-section {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/public/banner.jpg");
-    background-size: cover;
-    background-position: center;
+
+* {
+  font-family: 'Roboto', sans-serif;
+  /* user-select: none; */
+  /* font-family: 'Inter', sans-serif; */
+}
+
+body {
+  /* background-color: #f9f9f9 ; */
+}
+
+input,
+textarea,
+pre,
+code {
+  user-select: text;
 }
 
 .menu {

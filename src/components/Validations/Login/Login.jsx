@@ -8,49 +8,44 @@ export default function Login() {
                 <div className="flex items-center space-x-2 mb-6">
                     <img 
                         alt="Flowbite logo, blue circular icon with white swirl inside"
-                        className=" bg-white rounded-full w-6 h-6"
-                        height="24"
+                        className=" bg-white rounded-full w-8 h-8"
+                        height="32"
                         src="/Logo-HTA.png"
-                        width="24"
+                        width="32"
                     />
-                    <span className="font-semibold text-lg select-none">Hatef Tejarat Alborz</span>
+                    <span className="font-semibold text-lg select-none text-neutral">Hatef Tejarat Alborz</span>
                 </div>
-                <h1 className="text-white text-2xl font-semibold mb-2">Login your Account</h1>
-                <Link to='/validations/register' className="my-5 border-none outline-none btn btn-info bg-blue-600 hover:bg-blue-700 text-white px-4 py-1">Register here.</Link>
+                <h1 className="text-neutral text-2xl font-semibold mb-2">Login your Account</h1>
+                <Link to='/validations/register' className="my-5 btn btn-neutral text-primary px-4 py-1">Register here.</Link>
                     <form className="max-w-sm mx-auto">
                         <div className='mt-5'>
-                            <label className="block text-gray-400 text-xs font-semibold mb-1">Your email</label>
+                            <label className="block text-neutral text-xs font-semibold mb-1">Your email</label>
                             <input 
-                                className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                 placeholder="example@gmail.com"
                                 type="email"
                             />
                         </div>
                         <div className='my-5'>
-                            <label className="block text-gray-400 text-xs font-semibold mb-1">Your Password</label>
+                            <label className="block text-neutral text-xs font-semibold mb-1">Your Password</label>
                             <input 
-                                className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                 placeholder="******"
                                 type="password"
                             />
                         </div>
-                        <a href="#" className='text-sm text-gray-400 hover:underline transition'>Forget password?</a>
-                        <div className="flex items-start my-10">
-                            <div className="flex items-center h-5">
-                            <input
-                                id="remember"
-                                type="checkbox"
-                                className="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-                                required
-                            />
-                            </div>
-                            <label htmlFor="remember" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                            Remember me
+                        <a href="#" className='text-sm text-neutral hover:underline transition'>Forget password?</a>
+                        <div className="flex items-start my-5">
+                            <fieldset className="fieldset bg-base-100 border-base-300 rounded-box w-64 border p-4">
+                            <label className="label">
+                                <input type="checkbox" defaultChecked className="checkbox" />
+                                <span className="text-neutral">Remember me</span>
                             </label>
+                            </fieldset>
                         </div>
                         <a href='#'
                             type="submit"
-                            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                            className="btn btn-outline w-full inline-flex items-center justify-center hover:bg-neutral text-neutral hover:text-primary font-semibold rounded-md py-2 text-sm transition duration-300"
                         >
                             Submit
                         </a>

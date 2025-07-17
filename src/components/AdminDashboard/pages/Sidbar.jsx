@@ -31,8 +31,6 @@ function Links({ isOpen }) {
       title: "Dashboard",
       items: [
         { icon: <TiHome className='w-5 h-5' />, label: 'Home', path: '/admin' },
-        { icon: <SiGoogleanalytics className='w-4 h-4' />, label: 'Analytics', path: '/admin/analytics' },
-        { icon: <IoAnalytics className='w-5 h-5' />, label: 'Sales', path: '/admin/sales' },
       ],
     },
     {
@@ -40,8 +38,8 @@ function Links({ isOpen }) {
       items: [
         { icon: <FaUser className='w-5 h-5' />, label: 'Users', path: '/admin/users' },
         { icon: <FaUserPlus className='w-5 h-5' />, label: 'New Users', path: '/admin/new-users' },
-        { icon: <IoStorefrontSharp className='w-5 h-5' />, label: 'Products', path: '/admin/products' },
-        { icon: <TbBasketPlus className='w-5 h-5' />, label: 'Add Products', path: '/admin/add-product' },
+        { icon: <IoStorefrontSharp className='w-5 h-5' />, label: 'Products', path: '/admin/products' ,  },
+        { icon: <TbBasketPlus className='w-5 h-5' />, label: 'Add Products', path: '/admin/add-product' ,  },
         { icon: <RiTelegram2Fill className='w-5 h-5' />, label: 'Order', path: '/admin/orders' },
       ],
     },

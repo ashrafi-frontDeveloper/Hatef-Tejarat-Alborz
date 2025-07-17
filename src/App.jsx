@@ -44,7 +44,6 @@ export default function App() {
 
           <Route path="/products/steel" element={<AllProductsSteel />} />
           <Route path="/products/wire" element={<AllProductsWire />} />
-          <Route path="/products/details" element={<DetailsProducts />} />
           <Route path="/products/details/:category" element={<DetailsProducts />} />
           <Route path="/products/category/:categorySlug" element={<CategoryDetails />} />
 
@@ -56,3 +55,5 @@ export default function App() {
     </div>
   );
 }
+
+

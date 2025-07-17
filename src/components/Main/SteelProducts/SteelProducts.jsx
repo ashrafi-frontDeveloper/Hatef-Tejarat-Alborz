@@ -1,69 +1,124 @@
-import React from 'react'
-import { MdArrowRightAlt } from "react-icons/md";
-import { HiArrowLongRight } from "react-icons/hi2";
-import productCategories from '../../../data/ProductData/ProductData';
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
+import { HiArrowLongRight } from "react-icons/hi2"; // اگر از react-icons استفاده می‌کنید
+import CardItem from './CardItem'
+import productCategories from '../../../data/ProductData/ProductData';
 
-const Card = () => {
+gsap.registerPlugin(ScrollTrigger);
+
+function SteelProductsGSAP() {
+  const verticalSectionRef = useRef(null);
+
+  useEffect(() => {
+    const initScroll = (sectionRef) => {
+      const section = sectionRef.current;
+      if (!section) return;
+
+      const wrapper = section.querySelector(".wrapper");
+      const items = Array.from(wrapper.querySelectorAll(".item"));
+
+      // Initial states: set all items except the first one to be 100% below the viewport
+      items.forEach((item, index) => {
+        if (index !== 0) {
+          gsap.set(item, { yPercent: 100 }); // Only vertical scroll
+        }
+      });
+
+      // Create a GSAP timeline for the scroll animation
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: section, // The section element is the trigger for the animation
+          pin: true,        // Pin the section while scrolling through its items
+          start: "top top", // Start when the top of the section hits the top of the viewport
+          end: () => `+=${items.length * 100}%`, // End after scrolling through all items
+          scrub: 1,         // Smoothly link animation progress to scroll position
+          invalidateOnRefresh: true, // Recalculate positions on window resize
+        },
+        defaults: { ease: "none" }, // Use no easing for linear scroll effect
+      });
+
+      // Animate each item
+      items.forEach((item, index) => {
+        // First, scale down the current item and round its borders
+        timeline.to(item, {
+          scale: 0.9,
+          borderRadius: "10px",
+        });
+
+        // Then, if there's a next item, bring it into view
+        if (items[index + 1]) {
+          timeline.to(items[index + 1], { yPercent: 0 }, "<"); // Bring next item up, starting at the same time as the previous animation
+        }
+      });
+    };
+
+    // Initialize scroll animation for the vertical section
+    initScroll(verticalSectionRef);
+
+    // Cleanup ScrollTriggers on component unmount to prevent memory leaks and conflicts
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []); // Empty dependency array ensures this effect runs only once after initial render
+
+  // Filter to show only the first 5 products for the featured section
+  const featuredSteelProducts = productCategories.slice(0, 5);
+
   return (
-    <>
-      {productCategories
-        .filter((product, index) => index < 10) // نمایش فقط 10 تا
-        .map((product) => (
-                <div
-                  key={product.id}
-                  className="card bg-base-100 w-full sm:w-64 lg:w-72 shadow-sm border border-secondary"
-                >
-                  {/* تصویر و اطلاعات کلی دسته */}
-                  <figure className="px-5 xl:px-10 pt-5 xl:pt-10">
-                    <img
-                      src={product.img}
-                      alt={product.category}
-                      className="rounded-xl aspect-video object-cover"
-                    />
-                  </figure>
-                  <div className="card-body items-center text-center">
-                    <h2 className="card-title line-clamp-2">{product.category}</h2>
-                    <p className="line-clamp-3">{product.introduce}</p>
+    <main className="main-wrapper">
+      {/* Section for the main heading */}
+      <div className="section">
+        <div className="container-medium max-w-7xl mx-auto">
+          <div className="padding-vertical p-8">
+              <div className="max-width-large mx-auto text-center mb-8">
+                <h3 className="text-2xl font-medium text-neutral heading">Our Featured Steel Products</h3>
+                <div className="w-full h-[2px] bg-neutral mt-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-                    {/* محصولات زیر مجموعه (products) */}
-                    <ul className="mt-4 text-sm text-left w-full list-disc list-inside space-y-1">
-                      {product.products.slice(0, 3).map((prod) => (
-                        <li key={prod.id} className="text-gray-500">
-                          {prod.name}
-                        </li>
-                      ))}
-                    </ul>
+      {/* Vertical Scroll Section for Steel Products */}
+      <div ref={verticalSectionRef} className="scroll-section vertical-section section">
+        <div className="wrapper h-screen">
+          <div role="list" className="list justify-start items-center h-full flex relative px-0.5">
+            {featuredSteelProducts.map((product, index) => (
+              <CardItem
+                key={product.id} // Use product ID as key for better performance and stability
+                number={index + 1} // Optional: display a sequential number
+                title={product.category} // Use 'category' for the main title
+                description={product.introduce} // Use 'introduce' for the description
+                imageSrc={product.img} // Use 'img' for the product image source
+                slug={product.slug} // Use 'slug' for the navigation link
+              />
+            ))}
+          </div>
+        </div>
+      </div>
 
-                    {/* دکمه جزییات */}
-                    <div className="card-actions mt-4">
-                      <Link to={`/products/category/${product.slug}`} className="btn btn-info btn-sm">
-                        View Category
-                      </Link>
-                    </div>
+      {/* Section for the "Explore All" link */}
+      <div className="section">
+        <div className="padding-global px-10">
+          <div className="container-medium max-w-7xl mx-auto">
+            <div className="padding-vertical p-8">
+              <div className="max-width-large mx-auto">
+                <div className="text-center mb-8">
+                  <div className="flex items-center justify-center md:w-2/5 xl:w-1/4 mx-auto gap-x-1 btn btn-outline group hover:btn-neutral transition-colors duration-300">
+                    <Link to='/products/steel' className="text-base xl:text-lg text-neutral group-hover:text-primary font-semibold transition-colors">
+                      View all Steel Products
+                    </Link>
+                    <HiArrowLongRight className='w-7 h-7 text-neutral group-hover:text-primary' />
                   </div>
                 </div>
-      ))}
-    </>
-  );
-};
-
-export default function SteelProducts() {
-  return (
-    <div className="max-[1280px] mx-auto px-4 sm:px-6 lg:px-8 my-20">
-      {/* Title */}
-      <div className="text-center mb-8">
-          <h3 className="text-2xl font-medium text-secondary">Steel Products</h3>
-          <div className="flex items-center justify-end gap-x-1 mt-3">
-            <Link to="/products/steel" className="text-lg hover:text-info">View all</Link>
-            <HiArrowLongRight className='w-7 h-7' />
+              </div>
+            </div>
           </div>
-        <div className="w-full h-[2px] bg-secondary mt-2"></div>
+        </div>
       </div>
-      {/* Products */}
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] 2xl:grid-cols-5 gap-5">
-        <Card />
-      </div>
-    </div>
+    </main>
   );
 }
+
+export default SteelProductsGSAP;

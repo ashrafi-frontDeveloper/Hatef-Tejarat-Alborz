@@ -1,0 +1,57 @@
+/* استایل‌های عمومی جدول شما (بدون تغییر زیاد) */
+.table {
+  /* ... استایل‌های پیش‌فرض جدول */
+  border-collapse: collapse; /* برای جداول بهتر است */
+}
+
+.table th,
+.table td {
+  padding: 12px 15px;
+  text-align: left; /* یا right برای زبان فارسی */
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.table thead th {
+  background-color: var(--neutral); /* فرض بر این است که var(--neutral) رنگ سرستون شماست */
+  color: var(--primary); /* فرض بر این است که var(--primary) رنگ متن سرستون شماست */
+  font-weight: bold;
+}
+
+/* ----------------------------------------------- */
+/* استایل برای اسکرول افقی در سایزهای کوچک‌تر */
+@media screen and (max-width: 768px) {
+  .table-container-scroll {
+    overflow-x: auto; /* مهمترین بخش: فعال کردن اسکرول افقی */
+    -webkit-overflow-scrolling: touch; /* بهبود اسکرول در iOS */
+  }
+
+  /*
+    مهم: اگر استایل‌های قبلی برای تبدیل جدول به حالت "stack" (مانند display: block برای tr و td)
+    هنوز وجود دارند، باید آن‌ها را حذف کنید تا این روش کار کند.
+    مثلاً این بخش‌ها را حذف کنید:
+    .responsive-table, .responsive-table tbody, .responsive-table tr, .responsive-table td {
+        display: block;
+    }
+    .responsive-table td::before { ... }
+    و ...
+  */
+
+  /* اگر می‌خواهید عرض سلول‌ها را در موبایل کنترل کنید تا اسکرول ایجاد شود */
+  .table th,
+  .table td {
+    white-space: nowrap; /* جلوگیری از شکستن متن در سلول‌ها */
+    min-width: 120px; /* حداقل عرض برای هر ستون تا اسکرول ایجاد شود (می‌توانید تغییر دهید) */
+  }
+
+  /* اگر می‌خواهید ستون‌های خاصی باریک‌تر یا عریض‌تر باشند */
+  .table th:first-child,
+  .table td:first-child {
+      min-width: 80px; /* مثال: ستون اول کمی کوچکتر باشد */
+  }
+
+  .table th:last-child,
+  .table td:last-child {
+      min-width: 150px; /* مثال: ستون آخر کمی بزرگتر باشد */
+  }
+
+}

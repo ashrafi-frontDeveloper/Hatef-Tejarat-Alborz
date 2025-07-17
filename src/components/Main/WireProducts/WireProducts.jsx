@@ -1,48 +1,121 @@
-import React from 'react'
-import { MdArrowRightAlt } from "react-icons/md";
-import { HiArrowLongRight } from "react-icons/hi2";
-import wire from '../../../data/WireProduct/WireProducts';
+// src/WireProductsGSAP.jsx
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
+import { HiArrowLongRight } from "react-icons/hi2";
+import CardItem from './CardItem';
+import wire from '../../../data/WireProduct/WireProducts';
 
-const Card = () => {
+gsap.registerPlugin(ScrollTrigger);
+
+function WireProductsGSAP() {
+  const verticalSectionRef = useRef(null);
+  // Removed horizontalSectionRef as it's no longer needed
+
+  useEffect(() => {
+    const initScroll = (sectionRef, direction) => {
+      const section = sectionRef.current;
+      if (!section) return;
+
+      const wrapper = section.querySelector(".wrapper");
+      const items = Array.from(wrapper.querySelectorAll(".item"));
+
+      // Initial states
+      items.forEach((item, index) => {
+        if (index !== 0) {
+          // Since we only have vertical scroll, always set yPercent
+          gsap.set(item, { yPercent: 100 });
+        }
+      });
+
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          pin: true,
+          start: "top top",
+          end: () => `+=${items.length * 100}%`,
+          scrub: 1,
+          invalidateOnRefresh: true,
+        },
+        defaults: { ease: "none" },
+      });
+
+      items.forEach((item, index) => {
+        timeline.to(item, {
+          scale: 0.9,
+          borderRadius: "10px",
+        });
+
+        if (items[index + 1]) {
+          // Always use yPercent for vertical scroll
+          timeline.to(items[index + 1], { yPercent: 0 }, "<");
+        }
+      });
+    };
+
+    initScroll(verticalSectionRef, "vertical"); // Only initialize vertical scroll
+
+    // Cleanup ScrollTriggers on unmount
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+
+  // Use all products for the single vertical scroll section
+  const allProducts = wire;
+
   return (
-    <>
-      {
-        wire.filter((product, index) => index < 4).map(product => (
-          <div key={product.id} className="card bg-base-100 w-full sm:w-64 lg:w-72 shadow-sm border border-secondary">
-            <figure className="px-5 xl:px-10 pt-5 xl:pt-10">
-              <img src={product.img} alt={product.title} className="rounded-xl aspect-video object-cover" />
-            </figure>
-            <div className="card-body items-center text-center">
-              <h2 className="card-title line-clamp-2">{product.title}</h2>
-              <p className='line-clamp-3'>{product.intro}</p>
-              <div className="card-actions">
-                <Link to='/products/details' className="btn btn-info">Details</Link>
+    <main className="main-wrapper mt-10">
+      <div className="section">
+        <div className="container-medium max-w-7xl mx-auto">
+          <div className="padding-vertical p-8">
+              <div className="max-width-large mx-auto text-center mb-8">
+                <h3 className="text-2xl font-medium text-neutral heading">Our Featured Wire Products</h3>
+                <div className="w-full h-[2px] bg-neutral mt-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div ref={verticalSectionRef} className="scroll-section vertical-section section">
+        <div className="wrapper h-screen">
+          <div role="list" className="list justify-start items-center h-full flex relative px-0.5">
+            {allProducts.map((product, index) => (
+              <CardItem
+                key={product.id}
+                number={index + 1}
+                title={product.category}
+                description={product.intro}
+                imageSrc={product.img}
+                slug={product.slug}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="section">
+        <div className="padding-global px-10">
+          <div className="container-medium max-w-7xl mx-auto">
+            <div className="padding-vertical p-8">
+              <div className="max-width-large mx-auto">
+                <div className="text-center mb-8">
+                  <div className="flex items-center justify-center md:w-2/5 xl:w-1/4 mx-auto gap-x-1 btn btn-outline group hover:btn-neutral transition-colors duration-300">
+                    <Link to='/products/wire' className="text-base xl:text-lg text-neutral group-hover:text-primary font-semibold transition-colors">
+                      View all Wire Products
+                    </Link>
+                    <HiArrowLongRight className='w-7 h-7 text-neutral group-hover:text-primary' />
+                  </div>
+                  {/* <div className="w-full h-[2px] bg-gray-300 mt-2"></div> */}
+                </div>
               </div>
             </div>
           </div>
-        ))
-      }
-    </>
-  );
-};
-
-export default function WireProducts() {
-  return (
-    <div className="mx-auto px-4 sm:px-6 lg:px-8 my-20">
-      {/* Title */}
-      <div className="text-center mb-8">
-        <h3 className="text-2xl font-medium text-secondary">Wired products</h3>
-          <div className="flex items-center justify-end gap-x-1 mt-3">
-            <Link to='/products/wire' className="text-lg hover:text-info">View all</Link>
-            <HiArrowLongRight className='w-7 h-7' />
-          </div>
-        <div className="w-full h-[2px] bg-secondary mt-2"></div>
+        </div>
       </div>
-      {/* Products */}
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-5">
-        <Card />
-      </div>
-    </div>
+    </main>
   );
 }
+
+export default WireProductsGSAP;

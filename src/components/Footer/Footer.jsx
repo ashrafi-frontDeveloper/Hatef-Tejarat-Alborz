@@ -38,12 +38,12 @@ const SocialButtons = () => {
 }
 const Footer = () => {
   return (
-    <footer className="bg-gray-800">
+    <footer className="bg-neutral">
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div className="col-span-1 md:col-span-2">
                     <div className="flex items-center">
-                        <img src="/public/Logo-HTA.svg" alt="" className="w-8 h-8 rounded-full" />
+                        <img src="/Logo-HTA.svg" alt="" className="w-8 h-8 rounded-full" />
                         <span className="ml-2 text-xl font-semibold text-white">Hatef Tejart Alborz</span>
                     </div>
                     <p className="mt-4 text-base text-white">
@@ -57,10 +57,10 @@ const Footer = () => {
                     <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Company</h3>
                     <ul className="mt-4 space-y-4">
                         <li>
-                            <a href="#" className="text-base text-gray-300 hover:text-white">About</a>
+                            <a href="#" className="text-base text-gray-300 hover:text-primary">About</a>
                         </li>
                         <li>
-                            <a href="#" className="text-base text-gray-300 hover:text-white">Blog</a>
+                            <a href="#" className="text-base text-gray-300 hover:text-primary">Blog</a>
                         </li>
                     </ul>
                 </div>
@@ -71,7 +71,7 @@ const Footer = () => {
                             ['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map(item => {
                                 return (
                                     <li key={item}>
-                                        <a href="#" className='text-base text-gray-300 hover:text-white'>{item}</a>
+                                        <a href="#" className='text-base text-gray-300 hover:text-primary'>{item}</a>
                                     </li>
                                 )
                             })

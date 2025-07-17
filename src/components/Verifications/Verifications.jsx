@@ -3,6 +3,7 @@ import Navbar from '../Header/Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import { IoIosArrowDown } from "react-icons/io";
 import countries from '../../data/CountriesData/CountriesData';
+import MapPicker from './MapPicker';
 
 
 // CountrySelector
@@ -27,17 +28,17 @@ function CountrySelector({ selectedCountry, setSelectedCountry }) {
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full bg-[#334155] text-gray-300 text-sm rounded-md pl-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 flex justify-between items-center"
+        className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none flex justify-between items-center"
       >
         <span>{selectedCountry || "Choose a country"}</span>
         <IoIosArrowDown />
       </button>
 
       {isOpen && (
-        <div className="absolute z-10 w-full mt-1 bg-[#283445] rounded-md shadow-lg top-full">
+        <div className="absolute z-10 w-full mt-1 bg-neutral rounded-md shadow-lg top-full">
           <input
             type="text"
-            className="w-full px-3 py-2 text-sm bg-[#1f2937] text-white border-none focus:outline-none"
+            className="w-full px-3 py-2 text-sm bg-neutral text-primary border-none focus:outline-none"
             placeholder="Search country..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -46,7 +47,7 @@ function CountrySelector({ selectedCountry, setSelectedCountry }) {
             {filteredCountries.map((country, index) => (
               <li
                 key={index}
-                className="px-3 py-2 text-sm text-gray-300 cursor-pointer hover:bg-blue-600"
+                className="px-3 py-2 text-sm text-white cursor-pointer hover:text-neutral hover:bg-primary transition-all duration-300 font-medium"
                 onClick={() => handleSelectCountry(country)}
               >
                 {country}
@@ -122,22 +123,27 @@ const CustomCaptcha = ({ onValidate }) => {
 
 
 const Order = () => {
-  const [selectedCountry, setSelectedCountry] = useState("");
+    const [selectedCountry, setSelectedCountry] = useState("");
+
+    const [location, setLocation] = useState({ address: "", lat: "", lng: "" });
+    const [mapOpen, setMapOpen] = useState(false);
+
+  
     return (
         <>
           <div className="min-h-screen flex items-center justify-center p-6">
-              <section className="max-w-2xl w-full text-white shadow-2xl px-7 py-5 border border-white/5 rounded-xl">
+              <section className="max-w-2xl w-full text-neutral shadow-2xl px-7 py-5 border border-white/5 rounded-xl">
                   <div className="flex items-center space-x-2 mb-6">
                       <img 
                           alt="Flowbite logo, blue circular icon with white swirl inside"
-                          className=" bg-white rounded-full w-6 h-6"
-                          height="24"
+                          className=" bg-white rounded-full w-8 h-8"
+                          height="32"
                           src="/Logo-HTA.png"
-                          width="24"
+                          width="32"
                       />
                       <span className="font-semibold text-lg select-none">Hatef Tejarat Alborz</span>
                   </div>
-                  <h1 className="text-white text-2xl font-semibold mb-2">Business enquiry form for international orders</h1>
+                  <h1 className="text-neutral text-2xl font-semibold mb-2">Business enquiry form for international orders</h1>
                   <p className="">Dear customer! Thank you for your interest in our company. If you have an enquiry for material purchasing we will be glad to discuss it after filling the form below.</p>
 
                   <form className="space-y-4">
@@ -145,51 +151,69 @@ const Order = () => {
                       {/* 1 */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">COMPANY NAME:</label>
-                              <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                  placeholder="full name"
-                                  type="text"
-                              />
+                            <label className="block text-neutral text-xs font-semibold mb-1">
+                                COMPANY NAME: <span className="text-red-500">*</span>
+                            </label>
+
+                            <input 
+                                className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
+                                placeholder="full name"
+                                type="text"
+                            />
                           </div>
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">ACTIVITY:</label>
-                              <textarea className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+                              <label className="block text-neutral text-xs font-semibold mb-1">ACTIVITY:</label>
+                              <textarea className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"/>
                           </div>
                       </div>
                       {/* 2 */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">BUSINESS ADDRESS:</label>
+                              <label className="block text-neutral text-xs font-semibold mb-1">BUSINESS ADDRESS: <span className="text-red-500">*</span></label>
                               <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                  className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                   placeholder="Bussiness address"
                                   type="text"
                               />
                           </div>
-                          <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">REGISTERED ADDRESS:</label>
-                              <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                  placeholder="registered address"
-                                  type="text"
-                              />
+                          <div className="space-y-4">
+                            <div>
+                                <label className="block text-neutral text-xs font-semibold mb-1">REGISTERED ADDRESS:</label>
+                                <input
+                                onClick={() => setMapOpen(true)}
+                                value={location.address}
+                                readOnly
+                                placeholder="Click to select location from map"
+                                className="cursor-pointer w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
+                                />
+                            </div>
+
+                        {mapOpen && (
+                            <div className="mt-4">
+                            <MapPicker
+                                onSelect={(loc) => {
+                                setLocation(loc);
+                                setMapOpen(false);
+                                }}
+                            />
+                            </div>
+                        )}
                           </div>
                       </div>
                       {/* 3 */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">COMPANY REGISTRATION NO:</label>
+                              <label className="block text-neutral text-xs font-semibold mb-1">COMPANY REGISTRATION NO: <span className="text-red-500">*</span></label>
                               <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                  className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                   placeholder="company registration no"
                                   type="text"
                               />
                           </div>
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">Email:</label>
+                              <label className="block text-neutral text-xs font-semibold mb-1">Email: <span className="text-red-500">*</span></label>
                               <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                  className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                   placeholder="example@gmail.com"
                                   type="email"
                               />
@@ -198,7 +222,7 @@ const Order = () => {
                       {/* 4 */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
-                            <label className="block text-gray-400 text-xs font-semibold mb-1">
+                            <label className="block text-neutral text-xs font-semibold mb-1">
                               REGISTER COUNTRY:
                             </label>
                             <CountrySelector
@@ -207,28 +231,9 @@ const Order = () => {
                             />
                           </div>
                           <div>
-                            <label className="block text-gray-400 text-xs font-semibold mb-1">ADDRESS WEBSITE:</label>
+                            <label className="block text-neutral text-xs font-semibold mb-1">ADDRESS WEBSITE:</label>
                             <input 
-                                className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                placeholder="example.com"
-                                type="text"
-                            />
-                          </div>
-                      </div>
-                      {/* 5 */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          <div>
-                            <label className="block text-gray-400 text-xs font-semibold mb-1">TELEPHONE:</label>
-                            <input 
-                                className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                placeholder="+1 999999"
-                                type="text"
-                            />
-                          </div>
-                          <div>
-                            <label className="block text-gray-400 text-xs font-semibold mb-1">ADDRESS WEBSITE:</label>
-                            <input 
-                                className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                 placeholder="example.com"
                                 type="text"
                             />
@@ -237,17 +242,17 @@ const Order = () => {
                       {/* 6 */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
-                            <label className="block text-gray-400 text-xs font-semibold mb-1">MOBILE NUMBER:</label>
+                            <label className="block text-neutral text-xs font-semibold mb-1">WhatsApp Number: <span className="text-red-500">*</span></label>
                             <input 
-                                className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                 placeholder="+1 999999"
                                 type="text"
                             />
                           </div>
                           <div>
-                            <label className="block text-gray-400 text-xs font-semibold mb-1">P.O. Box Number:</label>
+                            <label className="block text-neutral text-xs font-semibold mb-1">P.O. Box Number:</label>
                             <input 
-                                className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                 placeholder="321654987"
                                 type="text"
                             />
@@ -260,17 +265,17 @@ const Order = () => {
                       {/* 7 */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">FULL NAME AS PER PASSPORT:</label>
+                              <label className="block text-neutral text-xs font-semibold mb-1">FULL NAME AS PER PASSPORT: <span className="text-red-500">*</span></label>
                               <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                  className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                   placeholder="company registration no"
                                   type="text"
                               />
                           </div>
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">UPLOAD PASSPOER:</label>
+                              <label className="block text-neutral text-xs font-semibold mb-1">UPLOAD PASSPOER: <span className="text-red-500">*</span></label>
                               <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                  className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                   placeholder="example@gmail.com"
                                   type="file"
                               />
@@ -279,17 +284,17 @@ const Order = () => {
                       {/* 8 */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">NATIONALITY:</label>
+                              <label className="block text-neutral text-xs font-semibold mb-1">NATIONALITY: <span className="text-red-500">*</span></label>
                               <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                  className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                   placeholder="nationality"
                                   type="text"
                               />
                           </div>
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">PASSPORT NUMBER:</label>
+                              <label className="block text-neutral text-xs font-semibold mb-1">PASSPORT NUMBER: <span className="text-red-500">*</span></label>
                               <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                  className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                   placeholder="222888222"
                                   type="text"
                               />
@@ -298,17 +303,17 @@ const Order = () => {
                       {/* 9 */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">PASSPORT ISSUED PLACE:</label>
+                              <label className="block text-neutral text-xs font-semibold mb-1">PASSPORT ISSUED PLACE:</label>
                               <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                  className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                   placeholder="passport issued place"
                                   type="text"
                               />
                           </div>
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">PASSPORT ISSUED DATE:</label>
+                              <label className="block text-neutral text-xs font-semibold mb-1">PASSPORT ISSUED DATE:</label>
                               <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                  className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                   placeholder="passport issued date"
                                   type="text"
                               />
@@ -317,17 +322,17 @@ const Order = () => {
                       {/* 10 */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">PASSPORT EXPIRY DATE:</label>
+                              <label className="block text-neutral text-xs font-semibold mb-1">PASSPORT EXPIRY DATE:</label>
                               <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                  className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                   placeholder="company registration no"
                                   type="passport expiry date"
                               />
                           </div>
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">HOME ADDRESS:</label>
+                              <label className="block text-neutral text-xs font-semibold mb-1">HOME ADDRESS:</label>
                               <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                  className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                   placeholder="home address"
                                   type="text"
                               />
@@ -336,17 +341,17 @@ const Order = () => {
                       {/* 11 */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">CITY:</label>
+                              <label className="block text-neutral text-xs font-semibold mb-1">CITY:</label>
                               <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                  className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                   placeholder="your city"
                                   type="text"
                               />
                           </div>
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">TELEPHONE NO:</label>
+                              <label className="block text-neutral text-xs font-semibold mb-1">Whatsapp or Telegram Number: <span className="text-red-500">*</span></label>
                               <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                  className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                   placeholder="+1 258852"
                                   type="text"
                               />
@@ -355,17 +360,17 @@ const Order = () => {
                       {/* 12 */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">STREET NAME & NUMBER:</label>
+                              <label className="block text-neutral text-xs font-semibold mb-1">STREET NAME & NUMBER:</label>
                               <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                  className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                   placeholder="street X - 9"
                                   type="text"
                               />
                           </div>
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">HOUSE NUMBER:</label>
+                              <label className="block text-neutral text-xs font-semibold mb-1">HOUSE NUMBER:</label>
                               <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                  className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                   placeholder="315"
                                   type="text"
                               />
@@ -374,17 +379,9 @@ const Order = () => {
                       {/* 13 */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                            <label className="block text-gray-400 text-xs font-semibold mb-1">MOBILE NUMBER:</label>
+                            <label className="block text-neutral text-xs font-semibold mb-1">PERSONAL EMAIL ADDRESS:</label>
                             <input 
-                                className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                placeholder="+1 963693"
-                                type="text"
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-gray-400 text-xs font-semibold mb-1">PERSONAL EMAIL ADDRESS:</label>
-                            <input 
-                                className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                 placeholder="example@gmail.com"
                                 type="email"
                             />
@@ -395,52 +392,48 @@ const Order = () => {
                       {/* 14 */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">BANK NAME:</label>
+                              <label className="block text-neutral text-xs font-semibold mb-1">BANK NAME:  <span className="text-red-500">*</span></label>
                               <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                  className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                   placeholder="bank name"
                                   type="text"
                               />
                           </div>
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">BANK ADDRESS:</label>
-                              <input type='text' placeholder='bank address' className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+                              <label className="block text-neutral text-xs font-semibold mb-1">BANK ADDRESS:</label>
+                              <input type='text' placeholder='bank address' className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"/>
                           </div>
                       </div>
                       {/* 15 */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label className="block text-neutral text-xs font-semibold mb-1">SWIFT Code: <span className="text-red-500">*</span></label>
+                            <input 
+                                className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
+                                placeholder="bank name"
+                                type="text"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-neutral text-xs font-semibold mb-1">Routing Number: <span className="text-red-500">*</span></label>
+                            <input type='text' placeholder='bank address' className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"/>
+                        </div>
+                      </div>
+                      {/* 16 */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">ACCOUNT NAME:</label>
+                              <label className="block text-neutral text-xs font-semibold mb-1">ACCOUNT NAME:</label>
                               <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                  className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                   placeholder="account name"
                                   type="text"
                               />
                           </div>
                           <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">ACCOUNT NUMBER:</label>
+                              <label className="block text-neutral text-xs font-semibold mb-1">ACCOUNT NUMBER:</label>
                               <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                  className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                   placeholder="334561"
-                                  type="text"
-                              />
-                          </div>
-                      </div>
-                      {/* 16 */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">IBAN NUMBER:</label>
-                              <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                  placeholder="259614"
-                                  type="text"
-                              />
-                          </div>
-                          <div>
-                              <label className="block text-gray-400 text-xs font-semibold mb-1">PURPOSE OF PAYMENT:</label>
-                              <input 
-                                  className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                  placeholder="purpose of payment"
                                   type="text"
                               />
                           </div>
@@ -448,17 +441,44 @@ const Order = () => {
                       {/* 17 */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
-                            <label className="block text-gray-400 text-xs font-semibold mb-1">BANK OFFICER NAME:</label>
+                              <label className="block text-neutral text-xs font-semibold mb-1">IBAN NUMBER:</label>
+                              <input 
+                                  className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
+                                  placeholder="259614"
+                                  type="text"
+                              />
+                          </div>
+                          <div>
+                              <label className="block text-neutral text-xs font-semibold mb-1">PURPOSE OF PAYMENT:</label>
+                              <input 
+                                  className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
+                                  placeholder="purpose of payment"
+                                  type="text"
+                              />
+                          </div>
+                      </div>
+                      {/* 18 */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                          <div>
+                            <label className="block text-neutral text-xs font-semibold mb-1">BANK OFFICER NAME:</label>
                             <input 
-                                className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                 placeholder="mr.ZYX"
                                 type="text"
                             />
                           </div>
                           <div>
-                            <label className="block text-gray-400 text-xs font-semibold mb-1">BANK OFFICER TEl & EMAIL:</label>
+                            <label className="block text-neutral text-xs font-semibold mb-1">BANK OFFICER TEl & EMAIL:</label>
                             <input 
-                                className="w-full bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
+                                placeholder="example@gmail.com"
+                                type="email"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-neutral text-xs font-semibold mb-1">Beneficiary’s Name: <span className="text-red-500">*</span></label>
+                            <input 
+                                className="w-full input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none"
                                 placeholder="example@gmail.com"
                                 type="email"
                             />
@@ -467,10 +487,10 @@ const Order = () => {
 
                       <div className="flex items-start space-x-2 mt-4 text-xs text-gray-400">
                           <CustomCaptcha />
-                          <input className="w-36 bg-[#334155] text-gray-300 text-sm rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" />
+                          <input className="w-36 input input-neutral text-neutral text-sm rounded-md px-3 py-2 focus:outline-none" type="text" />
                       </div>
 
-                      <a href='#' className="w-full inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md py-2 text-sm transition">
+                      <a href='#' className="btn btn-outline w-full inline-flex items-center justify-center hover:bg-neutral text-neutral hover:text-primary font-semibold rounded-md py-2 text-sm transition duration-300">
                           Applay
                       </a>
                       

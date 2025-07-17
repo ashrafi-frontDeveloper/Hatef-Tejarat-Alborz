@@ -1,6 +1,7 @@
 const productCategories = [
     {
         id: 1,
+        type: 'steel',
         category: "Cold Rolled Carbon Steel",
         slug: "cold-rolled-carbon-steel",
         introduce: "Carbon steel sheet is an iron carbon alloy with carbon content of 0.0218% ~ 2.11%. Generally, it also contains a small amount of silicon, manganese, sulfur and phosphorus",
@@ -34,6 +35,7 @@ const productCategories = [
 
     {
         id: 2,
+        type: 'steel',
         category: "Hot rolled carbon steel",
         slug: "hot-rolled-carbon-steel",
         introduce: "Hot-rolled plate/coil is made by continuously rolling the slab, after heating the slab in the reheating furnace, by the roughing mill and finishing mill, and it is coiled for a easier transportation.",
@@ -67,8 +69,9 @@ const productCategories = [
 
     {
         id: 3,
+        type: 'steel',
         category: "Galvanized wire",
-        slug: "galvanized-wire",
+        slug: "galvanized-steel",
         introduce: "Checkered plate is characterized by a raised angular pattern rolled onto the surface of the plate to provide skid resistance. ",
         advantage: "It is widely used in transportation, architecture, decoration, bottom plate around equipment, machinery, shipbuilding and other fields. ",
         application: "There's no pocket to collect grease, dirt or liquids,so checkered plate is easy to keep clean and dry.",
@@ -100,6 +103,7 @@ const productCategories = [
 
     {
         id: 4,
+        type: 'steel',
         category: "Galvanized steel",
         slug: "galvanized-steel",
         introduce: "Galvanized steel is defined as a carbon steel sheet coated with zinc on both sides. Zinc coating is one of the most effective and economical method of protecting bare steel from a corroding environment.",
@@ -133,6 +137,7 @@ const productCategories = [
 
     {
         id: 5,
+                type: 'steel',
         category: "Color Coated Steel",
         slug: "color-coated-steel",
         introduce: "Also known as pre-coated steel or color coated steel coil, it is a product made of hot-dip galvanized steel sheet, hot-dip galvalume steel sheet, electro galvanized steel sheet, etc.",
@@ -159,6 +164,7 @@ const productCategories = [
 
     {
         id: 12,
+                type: 'steel',
         category: "Corrugated Sheet",
         slug: "corrugated-sheet",
         introduce: "Corrugated sheet is a type of metal sheet formed into a series of parallel ridges and grooves for added strength and rigidity. It is commonly made from galvanized or color-coated steel.",
@@ -185,6 +191,7 @@ const productCategories = [
 
     {
         id: 13,
+                type: 'steel',
         category: "Carbon Steel Long Products",
         slug: "carbon-steel-long-products",
         introduce: "Carbon steel long products include a variety of structural and tubular steel items made primarily from carbon steel.",
@@ -225,6 +232,7 @@ const productCategories = [
 
     {
         id: 6,
+                type: 'steel',
         category: "Cold Rolled Carbon Steel 1",
         slug: "cold-rolled-carbon-steel-1",
         introduce: "Carbon steel rod is an alloy rod containing carbon and iron, with a carbon content up to 2.1% by weight. Carbon steel bars have good hardness and strength properties and they are cheaper than other steels.",
@@ -258,6 +266,7 @@ const productCategories = [
 
     {
         id: 7,
+                type: 'steel',
         category: "Carbon Steel Profile",
         slug: "carbon-steel-profile",
         introduce: "Steel profiles are steel products which have been rolled, drawn or pressed into a shape which is the same cross-section over its entire length.",
@@ -291,6 +300,7 @@ const productCategories = [
 
     {
         id: 14,
+                type: 'steel',
         category: "Steel Sheet Pile",
         slug: "steel-sheet-pile",
         introduce: "Steel sheet piles are long structural sections with interlocking edges, used to retain soil or water.",
@@ -331,6 +341,7 @@ const productCategories = [
 
     {
         id: 15,
+                type: 'steel',
         category: "Stainless Steel Plate",
         slug: "stainless-steel-plate",
         introduce: "Stainless steel plate is a flat-rolled steel product with superior corrosion resistance and high strength.",
@@ -357,6 +368,7 @@ const productCategories = [
 
     {
         id: 17,
+                type: 'steel',
         category: "Color Plated Stainless Steel",
         slug: "color-plated-stainless-steel",
         introduce: "",
@@ -383,6 +395,7 @@ const productCategories = [
 
     {
         id: 9,
+                type: 'steel',
         category: "Stainless Steel Profile",
         slug: "stainless-steel-profile",
         introduce: "Stainless steel profiles are used in engineering construction. Based on the good corrosion resistance of stainless steel, it can permanently maintain the integrity of engineering design.",
@@ -416,6 +429,7 @@ const productCategories = [
 
     {
         id: 11,
+                type: 'steel',
         category: "Aluminum Profile",
         slug: "aluminum-profile",
         introduce: "Aluminum profile refers to aluminum alloy profile. It is first processed into castings, forgings, plates, strips and profiles, and then made through cold bending, sawing, coloring and other processes.",
@@ -449,6 +463,7 @@ const productCategories = [
 
     {
         id: 16,
+                type: 'steel',
         category: "Guardrail",
         slug: "guardrail",
         introduce: "Guardrails are safety barriers designed to prevent vehicles or pedestrians from straying into dangerous or off-limit areas. They are available in various types for roads, bridges, and industrial zones.",
@@ -465,6 +480,53 @@ const productCategories = [
             },
         ],
     },
+
+    {
+        id: 19,
+                type: 'wire',
+        category: 'Iron wire',
+        slug: "iron-wire",
+        introduce: "the wires produced by Hatef Tejarat Alborz Company are categorized into four types: iron, annealed, galvanized and ribbed. The initial rebar is converted into desired size through a drawing process and is packaged into coils with the requested weight. The chemical analysis of the drawn wire is exactly the same as the initial rebar, but the mechanical properties vary based on the amount of drawing and the percentage of cross-sectional area reduction. In the table, the sizes and weights with higher demands are shown",
+        advantage: "",
+        application: "",
+        img: '/images/categories/wire/Iron wire/5922741763993356038.jpg',
+        table: [
+            {grades: 'SAE1006', c: '0.08', fe: 'bal', mn: '0.25-0.4', p: '0.04', s: '0.05', si: '0.15-0.2', diameter: '1.50 | 1.60 | 1.70', weight: '250'},
+            {grades: 'SAE1008', c: '0.1', fe: 'bal', mn: '0.3-0.5', p: '0.03', s: '0.05', si: '0.07-0.1', diameter: '1.80-3.20', weight: '350'},
+            {grades: '3SP', c: '0.18', fe: 'bal', mn: '0.4-0.6', p: '0.04', s: '0.05', si: '0.15-0.3', diameter: '3.30-5.50', weight: '450'},
+        ],
+    },
+
+    {
+        id: 20,
+        type: 'wire',
+        category: 'Annealed Wire',
+        slug: "annealed-wire",
+        introduce: 'Annealed wire, also known as black wire, is produced from steel wire after the drawing process and placement in an annealing furnace. Due to its dark surface, it is referred to as black wire. ', 
+        advantage: "",
+        application: "",
+        img: '/images/categories/wire/Annealed Wire/5922741763993356037.jpg',
+        table: [
+            {grades: 'SAE1006', MPa: '410-440', wireDiameter: '1.50 | 1.60 | 1.70', coilWeight: '250'},
+            {grades: 'SAE1008', MPa: '410-440', wireDiameter: '1.80-3.20', coilWeight: '350'},
+            {grades: '3SP', MPa: '410-440', wireDiameter: '3.30-5.50', coilWeight: '450'},
+        ],
+    },
+
+    // {
+    //     id: 21, 
+    //     category: 'Galvanized wire', 
+    //     slug: "galvanized-wire-sire",
+    //     introduce: 'Galvanized wire is a type of steel wire coated with a layer of zinc to resist rust and corrosion. It is produced in two types: hot-dip galvanized and electro-galvanized. The hot-dip galvanizing process involves immersing the cleaned wire in a bath of molten zinc with a small percentage of aluminum, which creates a durable coating against rust.', 
+    //     advantage: "",
+    //     application: "",
+    //     img: '/images/categories/wire/Galvanized wire/5922741763993356036.jpg',
+    //     table: [
+    //         {grades: 'SAE1006', MPa: '410-440', wireDiameter: '1.50 | 1.60 | 1.70', coilWeight: '250'},
+    //         {grades: 'SAE1008', MPa: '410-440', wireDiameter: '1.80-3.20', coilWeight: '350'},
+    //         {grades: '3SP', MPa: '410-440', wireDiameter: '3.30-5.50', coilWeight: '450'},
+    //     ],
+    // },
 ];
 
 
