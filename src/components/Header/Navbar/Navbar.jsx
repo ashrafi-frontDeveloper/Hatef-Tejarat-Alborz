@@ -5,7 +5,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { FaPlus } from "react-icons/fa6";
 import { FiMinus } from "react-icons/fi";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, NavLink } from 'react-router-dom';
 import productCategories from '../../../data/ProductData/ProductData';
 
 const Logo = () => (
@@ -56,12 +56,6 @@ const UserActions = () => (
       </Link>
     </div>
   </>
-);
-
-const NavLink = ({ href, children }) => (
-  <a className="btn btn-soft hover:bg-neutral hover:text-primary px-5 sm:text-base rounded-4xl transition-all duration-500 whitespace-nowrap" href={href}>
-    {children}
-  </a>
 );
 
 const mainMenuVariants = {
@@ -207,20 +201,46 @@ const CategoriesDropdown = () => {
 const NavigationBar = () => (
   <nav className="max-w-[1280px] mx-auto border-t border-gray-200 px-4">
     <div className="flex flex-wrap items-center gap-3 py-2 text-[13px] font-semibold text-neutral select-none">
-      {/* Categories dropdown  */}
+      
+      {/* Categories dropdown */}
       <CategoriesDropdown />
+
       {/* Links */}
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="contact">Contact</NavLink>
-      <NavLink to="about">About Us</NavLink>
-      <NavLink to="verifications">Verifications</NavLink>
+      <NavLink
+        to="/"
+        className="btn btn-soft hover:bg-neutral hover:text-primary px-5 sm:text-base rounded-4xl transition-all duration-500 whitespace-nowrap"
+      >
+        Home
+      </NavLink>
+
+      <NavLink
+        to="/contact"
+        className="btn btn-soft hover:bg-neutral hover:text-primary px-5 sm:text-base rounded-4xl transition-all duration-500 whitespace-nowrap"
+      >
+        Contact
+      </NavLink>
+
+      <NavLink
+        to="/about"
+        className="btn btn-soft hover:bg-neutral hover:text-primary px-5 sm:text-base rounded-4xl transition-all duration-500 whitespace-nowrap"
+      >
+        About Us
+      </NavLink>
+
+      <NavLink
+        to="/verifications"
+        className="btn btn-soft hover:bg-neutral hover:text-primary px-5 sm:text-base rounded-4xl transition-all duration-500 whitespace-nowrap"
+      >
+        Verifications
+      </NavLink>
 
       <div className="flex ml-auto sm:hidden">
-        <UserActions/>
+        <UserActions />
       </div>
     </div>
   </nav>
 );
+
 
 const Navbar = () => (
 
