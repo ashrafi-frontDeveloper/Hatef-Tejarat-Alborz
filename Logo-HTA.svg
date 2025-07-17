@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" width="375" height="375" viewBox="0 0 375 375">
+<defs>
+<clipPath id="clip_0">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M0 0H1562.5V1562.5H0Z" clip-rule="evenodd"/>
+</clipPath>
+<clipPath id="clip_1">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M0 0H1562.5V1562.5H0Z" clip-rule="evenodd"/>
+</clipPath>
+<clipPath id="clip_2">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M0 0H1562.5V1562.5H0Z" clip-rule="evenodd"/>
+</clipPath>
+<clipPath id="clip_3">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M124.595729 697.7008H1381.3993V781.25H124.595729Z" clip-rule="evenodd"/>
+</clipPath>
+<clipPath id="clip_4">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M0 0H1562.5V1562.5H0Z" clip-rule="evenodd"/>
+</clipPath>
+</defs>
+<g clip-path="url(#clip_0)">
+<path transform="matrix(.75,0,0,.75,0,0)" d="M0 0H500V500H0Z" fill="#ffffff"/>
+</g>
+<g clip-path="url(#clip_1)">
+<path transform="matrix(.75,0,0,.75,0,0)" d="M0 0H500V500H0Z" fill="#ffffff"/>
+</g>
+<g clip-path="url(#clip_2)">
+<text xml:space="preserve" transform="matrix(1.3375516 0 0 1.3375516 11.587064 125.303859)" font-size="93.37" font-family="TAN-PEARL"><tspan y="81" x="12.421875 97.93915 168.79898">HTA</tspan></text>
+</g>
+<g clip-path="url(#clip_3)">
+<path transform="matrix(.07832735,0,0,.07832735,29.902974,167.4482)" d="M0 0H3851V256H0Z" fill="#ffffff"/>
+</g>
+<g clip-path="url(#clip_4)">
+<text xml:space="preserve" transform="matrix(.93283817 0 0 .93283817 1.5468596 166.74878)" font-size="17.54" font-family="Montserrat"><tspan y="17" x="46.703126 64.2724 80.15869 93.538028 108.582828 122.996509 130.90613 144.28546 159.33026 171.42983 187.31612 203.3076 219.1939 232.57323 240.48285 256.36915 270.01145 286.5464 304.57148 320.56297">HATEF TEJARAT ALBORZ</tspan></text>
+</g>
+</svg>
