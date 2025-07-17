@@ -4,6 +4,11 @@
     <meta charset="utf-8" />
     <title>Redirecting...</title>
     <script type="text/javascript">
+      const redirect = sessionStorage.redirect;
+      if (redirect) {
+        sessionStorage.removeItem("redirect");
+        window.location.replace(redirect);
+      }
       // ذخیره مسیر جاری
       sessionStorage.redirect = location.pathname + location.search + location.hash;
       // ریدایرکت به روت اپ (با مسیر پروژه در گیت‌هاب)
