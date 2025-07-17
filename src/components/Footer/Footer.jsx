@@ -43,7 +43,8 @@ const Footer = () => {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div className="col-span-1 md:col-span-2">
                     <div className="flex items-center">
-                        <img src="/Logo-HTA.svg" alt="" className="w-8 h-8 rounded-full" />
+                        <img src={`${import.meta.env.BASE_URL}Logo-HTA.svg`} alt="" className="w-8 h-8 rounded-full" />
+
                         <span className="ml-2 text-xl font-semibold text-white">Hatef Tejart Alborz</span>
                     </div>
                     <p className="mt-4 text-base text-white">
