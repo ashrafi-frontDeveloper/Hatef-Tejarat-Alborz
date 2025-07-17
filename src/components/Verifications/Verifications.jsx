@@ -138,7 +138,7 @@ const Order = () => {
                           alt="Flowbite logo, blue circular icon with white swirl inside"
                           className=" bg-white rounded-full w-8 h-8"
                           height="32"
-                          src="/Logo-HTA.png"
+                          src={`${import.meta.env.BASE_URL}Logo-HTA.png`} 
                           width="32"
                       />
                       <span className="font-semibold text-lg select-none">Hatef Tejarat Alborz</span>
