@@ -67,12 +67,15 @@ function WireProductsGSAP() {
 
   return (
     <main className="main-wrapper mt-10">
+      {/* Title Section */}
       <div className="section">
         <div className="container-medium max-w-7xl mx-auto">
-          <div className="padding-vertical p-8">
-              <div className="max-width-large mx-auto text-center mb-8">
-                <h3 className="text-2xl font-medium text-neutral heading">Our Featured Wire Products</h3>
-                <div className="w-full h-[2px] bg-neutral mt-2"></div>
+          <div className="py-12 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl mx-auto text-center mb-10">
+              <h3 className="text-3xl sm:text-4xl font-bold text-primary leading-snug">
+                Our Featured Wire Products
+              </h3>
+              <div className="w-20 h-[3px] bg-primary mt-4 mx-auto rounded"></div>
             </div>
           </div>
         </div>
@@ -107,7 +110,6 @@ function WireProductsGSAP() {
                     </Link>
                     <HiArrowLongRight className='w-7 h-7 text-neutral group-hover:text-primary' />
                   </div>
-                  {/* <div className="w-full h-[2px] bg-gray-300 mt-2"></div> */}
                 </div>
               </div>
             </div>

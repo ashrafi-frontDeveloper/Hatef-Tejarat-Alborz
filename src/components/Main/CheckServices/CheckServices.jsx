@@ -60,5 +60,4 @@ const CheckServices = () => {
   );
 };
 
-
 export default CheckServices;
