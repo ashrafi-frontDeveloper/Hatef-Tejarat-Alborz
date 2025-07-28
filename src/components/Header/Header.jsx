@@ -8,7 +8,7 @@ import MainHeader from './MainHeader/MainHeader';
 
 export default function Header() {
   return (
-    <div className=''>
+    <div>
        <Navbar />
        <MainHeader />
     </div>

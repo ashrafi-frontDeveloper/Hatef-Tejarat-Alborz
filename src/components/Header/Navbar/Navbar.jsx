@@ -11,15 +11,18 @@ import productCategories from '../../../data/ProductData/ProductData';
 const Logo = () => (
   <div className="flex items-center gap-2 shrink-0">
     <img 
-      alt="JinStore logo with a smiling box icon" 
-      className="w-10 h-10 bg-white rounded-full" 
+      alt="Hatef Tejarat Alborz logo" 
+      className="w-10 h-10 rounded-full object-contain bg-white" 
       src={`${import.meta.env.BASE_URL}Logo-HTA.png`} 
-      width="32"
-      height="32"
+      width="40"
+      height="40"
     />
-    <span className="font-semibold text-lg select-none text-neutral whitespace-nowrap">Hatef Tejarat Alborz</span>
+    <span className="text-base md:text-lg font-bold tracking-tight leading-tight text-neutral whitespace-nowrap">
+      Hatef Tejarat Alborz
+    </span>
   </div>
 );
+
 
 const SearchBar = () => (
   <div className="flex-1 min-w-[180px] max-w-full sm:max-w-[600px]">
@@ -199,7 +202,7 @@ const CategoriesDropdown = () => {
 };
 
 const NavigationBar = () => (
-  <nav className="max-w-[1280px] mx-auto border-t border-gray-200 px-4">
+  <nav className="max-w-screen-2xl mx-auto border-t border-gray-200 px-4">
     <div className="flex flex-wrap items-center gap-3 py-2 text-[13px] font-semibold text-neutral select-none">
       
       {/* Categories dropdown */}
@@ -244,8 +247,8 @@ const NavigationBar = () => (
 
 const Navbar = () => (
 
-  <nav className='shadow-lg border-b border-white/20'>
-    <div className="max-w-[1280px] mx-auto flex flex-wrap items-center justify-between gap-3 px-4 py-3">
+  <nav className='shadow-lg border-b border-white/20 bg-base-100'>
+    <div className="max-w-screen-2xl mx-auto flex flex-wrap items-center justify-between gap-3 px-4 py-3">
       <Logo />
       <SearchBar />
       <div className="hidden sm:flex">
@@ -255,6 +258,23 @@ const Navbar = () => (
     <NavigationBar />
   </nav>
 );
+
+// const Navbar = () => (
+//   <nav className="shadow-lg border-b border-white/20 bg-base-100">
+//     <div className="max-w-screen-xl mx-auto flex flex-wrap items-center justify-between gap-4 px-4 py-3">
+//       <Logo />
+//       <div className="flex-1 hidden md:block mx-4">
+//         <SearchBar />
+//       </div>
+//       <div className="hidden sm:flex">
+//         <UserActions />
+//       </div>
+//     </div>
+//     <NavigationBar />
+//   </nav>
+// );
+
+
 
 export default Navbar;
 
