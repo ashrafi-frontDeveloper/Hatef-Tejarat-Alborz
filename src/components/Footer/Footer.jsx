@@ -40,7 +40,7 @@ const SocialButtons = () => {
 const Footer = () => {
   return (
     <footer className="bg-neutral text-white pt-16 pb-10 border-t border-neutral-700">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
