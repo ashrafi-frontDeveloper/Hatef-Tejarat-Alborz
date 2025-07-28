@@ -156,26 +156,36 @@ export default function MainHeader() {
   }, []);
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center header-parallax">
+    <div className="max-w-screen-2xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center header-parallax">
       {/* متن سمت چپ */}
       <div>
-        <h1
-          ref={titleRef}
-          className="text-[31px] sm:text-5xl font-extrabold text-primary leading-tight whitespace-normal"
-          style={{ perspective: "600px" }}
-        >
-        </h1>
-        <p ref={paragraphRef} className="text-black/80 text-lg mt-3 leading-relaxed max-w-md">
-          Our company was established on September 11, 2023 and is actively operating with registration number 618179. As a reputable and leading trading company in the field of metals, we are constantly striving to meet the needs of our customers by providing high-quality services and products.
-        </p>
-        <Link
-          ref={buttonRef}
-          to="/products/steel"
-          className="mt-6 btn btn-neutral px-8 text-primary font-semibold shadow-lg hover:shadow-xl transition-shadow duration-300"
-        >
-          View Products
-        </Link>
+          <h1
+            ref={titleRef}
+            className="text-3xl sm:text-5xl font-bold text-primary leading-tight tracking-tight"
+            style={{ perspective: "600px" }}
+          >
+            Where quality combines with precision
+          </h1>
+
+          <p
+            ref={paragraphRef}
+            className="text-base sm:text-lg text-black/80 mt-4 leading-relaxed max-w-xl"
+          >
+            Our company was established on September 11, 2023 and is actively operating
+            with registration number 618179. As a reputable and leading trading company
+            in the field of metals, we are constantly striving to meet the needs of our
+            customers by providing high-quality services and products.
+          </p>
+
+          <Link
+            ref={buttonRef}
+            to="/products/steel"
+            className="mt-6 btn btn-neutral text-primary inline-block bg-neutral font-medium px-6 py-2 rounded-full shadow hover:shadow-md transition"
+          >
+            View Products
+          </Link>
       </div>
+
 
       {/* کارت‌های محصولات سمت راست */}
       <div className="grid grid-cols-2 gap-6 perspective-3d">

@@ -25,32 +25,40 @@ const services = [
 ];
 
 const CheckServices = () => {
+  return (
+    <div className="max-w-screen-2xl mx-auto px-4 py-12 mt-10">
+      {/* Title */}
+      <div className="text-center mb-12">
+        <h2 className="text-3xl sm:text-4xl font-bold text-primary tracking-tight">
+          Our Services
+        </h2>
+        <p className="text-neutral-600 mt-2 text-base sm:text-lg max-w-xl mx-auto">
+          Discover how our solutions can support your industry.
+        </p>
+      </div>
 
-    
-    return (
-        <div className="max-w-[1280px] mx-auto px-4 py-6 mt-5">
-            {/* Title */}
-            <div className="text-center mb-8">
-                <h3 className="text-2xl font-medium text-neutral">Our Services</h3>
-                <div className="w-full h-[2px] bg-neutral mt-2"></div>
-            </div>
-
-            {/* Service Sections */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {services.map((service, index) => (
-                    <div key={index} className="group flex flex-col items-center p-6 border rounded-lg bg-white hover:bg-neutral transition-colors duration-500 shadow-lg">
-                        {service.icon}
-                        <h6 className="text-base text-neutral font-semibold group-hover:text-primary">
-                        {service.title}
-                        </h6>
-                        <p className="text-sm text-text text-center mt-2 text-neutral group-hover:text-primary">
-                        {service.description}
-                        </p>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
+      {/* Service Sections */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {services.map((service, index) => (
+          <div
+            key={index}
+            className="group flex flex-col items-center text-center p-6 sm:p-8 border rounded-xl bg-white hover:bg-primary/5 transition-all duration-300 shadow hover:shadow-md"
+          >
+            {React.cloneElement(service.icon, {
+              className: "text-5xl text-primary mb-4 group-hover:text-primary/80 transition",
+            })}
+            <h6 className="text-lg font-semibold text-neutral-800 group-hover:text-primary transition">
+              {service.title}
+            </h6>
+            <p className="text-sm text-neutral-600 mt-3 leading-relaxed group-hover:text-neutral-800 transition">
+              {service.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
+
 
 export default CheckServices;

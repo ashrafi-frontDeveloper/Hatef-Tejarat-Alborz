@@ -25,15 +25,16 @@
     --color-text: #1E293B; */
 }
 
-* {
+/* * {
   font-family: 'Roboto', sans-serif;
-  /* user-select: none; */
-  /* font-family: 'Inter', sans-serif; */
-}
+  user-select: none;
+  font-family: 'Inter', sans-serif;
+} */
 
 body {
-  /* background-color: #f9f9f9 ; */
+  font-family: 'Outfit', sans-serif;
 }
+
 
 input,
 textarea,

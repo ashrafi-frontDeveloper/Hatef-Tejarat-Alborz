@@ -259,23 +259,6 @@ const Navbar = () => (
   </nav>
 );
 
-// const Navbar = () => (
-//   <nav className="shadow-lg border-b border-white/20 bg-base-100">
-//     <div className="max-w-screen-xl mx-auto flex flex-wrap items-center justify-between gap-4 px-4 py-3">
-//       <Logo />
-//       <div className="flex-1 hidden md:block mx-4">
-//         <SearchBar />
-//       </div>
-//       <div className="hidden sm:flex">
-//         <UserActions />
-//       </div>
-//     </div>
-//     <NavigationBar />
-//   </nav>
-// );
-
-
-
 export default Navbar;
 
 
