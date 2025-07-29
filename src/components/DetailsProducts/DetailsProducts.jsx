@@ -99,48 +99,63 @@ export default function DetailsProducts() {
   if (!product) return <p className="p-6 text-red-600">محصول مورد نظر یافت نشد.</p>;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12" ref={mainContainerRef}>
+    <div className="max-w-screen-2xl mx-auto px-4 py-12 space-y-12" ref={mainContainerRef}>
+      {/* Back Button */}
       {parentCategory && (
-        <div className="mb-6" ref={backLinkRef}>
+        <div ref={backLinkRef}>
           <Link
-            to={`/products/steel`}
-            className="inline-flex btn btn-outline items-center gap-2 text-sm text-neutral hover:bg-neutral hover:text-primary transition"
+            to="/products/steel"
+            className="inline-flex items-center gap-2 text-sm btn btn-outline text-neutral hover:bg-neutral hover:text-primary transition"
           >
-            ← back to all products
+            ← Back to All Products
           </Link>
         </div>
       )}
 
-      <div className="flex flex-col md:flex-row items-center gap-x-2 shadow-md bg-neutral border border-secondary rounded-2xl overflow-hidden md:h-[550px]">
-        {/* Right: Image */}
-        <div className="w-full md:w-1/2 h-64 md:h-full flex justify-center items-center" ref={imageRef}>
+      {/* Product Detail Section */}
+      <div className="flex flex-col md:flex-row bg-neutral border border-primary rounded-3xl overflow-hidden shadow-lg md:h-[550px]">
+        {/* Image */}
+        <div className="w-full md:w-1/2 h-64 md:h-full">
           <img
             src={product.img}
             alt={product.name}
             className="w-full h-full object-cover"
+            ref={imageRef}
           />
         </div>
 
-        {/* Left: Content */}
-        <div className="w-full md:w-1/2 h-full p-4 flex flex-col justify-between space-y-5" ref={contentRef}>
-          <h2 className="text-xl md:text-3xl font-bold text-primary pt-2">{product.name}</h2>
+        {/* Content */}
+        <div className="w-full md:w-1/2 p-6 flex flex-col justify-between gap-5" ref={contentRef}>
+          <h2 className="text-2xl md:text-4xl font-bold text-primary">{product.name}</h2>
 
-          <div className="border border-white/20 p-4 rounded-xl text-lg text-primary">
+          <p className="border border-white/10 text-primary text-sm md:text-base p-4 rounded-lg leading-relaxed">
             {product.description}
-          </div>
+          </p>
 
           {parentCategory && (
-            <div className="text-lg font-bold text-primary italic">
+            <span className="italic font-medium text-primary text-sm">
               Category: {parentCategory.category}
-            </div>
+            </span>
           )}
 
           <Link
             to="/order"
-            className="mt-4 text-base md:text-lg font-bold px-4 py-2 text-neutral border border-primary bg-white rounded-xl text-center hover:bg-neutral hover:text-primary transition-all duration-300"
             ref={orderButtonRef}
-            onMouseEnter={() => gsap.to(orderButtonRef.current, { scale: 1.05, duration: 0.2, ease: "power1.inOut" })}
-            onMouseLeave={() => gsap.to(orderButtonRef.current, { scale: 1, duration: 0.2, ease: "power1.inOut" })}
+            className="btn btn-neutral text-base md:text-lg font-semibold rounded-xl hover:btn-neutral hover:text-primary transition-all duration-300 w-full md:w-auto text-center"
+            onMouseEnter={() =>
+              gsap.to(orderButtonRef.current, {
+                scale: 1.05,
+                duration: 0.2,
+                ease: "power1.inOut"
+              })
+            }
+            onMouseLeave={() =>
+              gsap.to(orderButtonRef.current, {
+                scale: 1,
+                duration: 0.2,
+                ease: "power1.inOut"
+              })
+            }
           >
             Order
           </Link>
@@ -149,36 +164,44 @@ export default function DetailsProducts() {
 
       {/* Related Products */}
       {parentCategory && parentCategory.products.length > 1 && (
-        <div className="mt-12" ref={relatedProductsRef}>
-          <h3 className="text-xl font-bold text-neutral mb-4">
-            Other products in {parentCategory.category}:
+        <section className="space-y-8" ref={relatedProductsRef}>
+          <h3 className="text-2xl font-bold text-neutral text-center">
+            Other products in <span className="text-primary">{parentCategory.category}</span>
           </h3>
-          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {parentCategory.products
-              .filter(p => p.slug !== product.slug) // حذف محصول فعلی
+              .filter(p => p.slug !== product.slug)
               .map(related => (
                 <div
                   key={related.id}
-                  className="border rounded-xl shadow p-4 bg-base-100 related-product-card" // کلاس اضافه شده
+                  className="bg-base-100 border border-base-300 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 p-5 flex flex-col justify-between"
                 >
                   <img
                     src={related.img}
                     alt={related.name}
-                    className="rounded-md h-40 w-full object-cover mb-3"
+                    className="rounded-lg mb-4 h-48 w-full object-cover"
                   />
-                  <h4 className="font-semibold text-lg">{related.name}</h4>
-                  <p className="text-sm line-clamp-2 text-neutral">{related.description}</p>
-                  <Link
-                    to={`/products/details/${related.slug}`}
-                    className="inline-block btn btn-neutral py-2 mt-4 text-primary"
-                  >
-                    View Details
-                  </Link>
+                  <div className="flex flex-col flex-grow">
+                    <h3 className="font-semibold text-lg text-neutral line-clamp-2 h-full">
+                      {related.name}
+                    </h3>
+                    <p className="text-sm text-gray-500 line-clamp-3 mt-2 h-full">
+                      {related.description}
+                    </p>
+                    <Link
+                      to={`/products/details/${related.slug}`}
+                      className="mt-4 btn btn-neutral w-full text-white hover:text-primary"
+                    >
+                      View Details
+                    </Link>
+                  </div>
                 </div>
               ))}
           </div>
-        </div>
+        </section>
       )}
+
     </div>
   );
 }

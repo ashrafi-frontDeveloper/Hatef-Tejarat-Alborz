@@ -212,10 +212,10 @@ const CategoryDetails = () => {
 
   return (
     <>
-      <div className="max-w-7xl mx-auto p-6" ref={mainContainerRef}>
+      <div className="max-w-screen-2xl mx-auto p-6" ref={mainContainerRef}>
         <div>
           <Link to="/products/wire" className="inline-flex btn btn-outline items-center gap-2 text-sm text-neutral hover:bg-neutral hover:text-primary transition" data-discover="true">← back to all products</Link>
-          <div className="max-w-7xl mx-auto px-4 py-12">
+          <div className="max-w-screen-2xl mx-auto px-4 py-12">
             <div className="flex flex-col md:flex-row items-center bg-neutral gap-x-2 shadow-md border border-primary rounded-2xl overflow-hidden md:h-[550px]">
               {/* Right: Image */}
               <div className="w-full md:w-1/2 h-64 md:h-full flex justify-center items-center" ref={imageRef}>
@@ -252,7 +252,7 @@ const CategoryDetails = () => {
                 {/* link request */}
                 <Link
                   to="/order"
-                  className="mt-4 text-base md:text-lg font-bold px-4 py-2 text-neutral border border-primary bg-white rounded-xl text-center hover:bg-neutral hover:text-primary transition-all duration-300"
+                  className="btn btn-neutral text-base md:text-lg font-semibold rounded-xl hover:btn-neutral hover:text-primary transition-all duration-300 w-full md:w-auto text-center"
                   ref={orderButtonRef}
                 >
                   Order
@@ -262,29 +262,38 @@ const CategoryDetails = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6" ref={productsGridRef}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" ref={productsGridRef}>
           {category.products ? (
             category.products.map(product => (
-              <div key={product.id} className="border border-neutral rounded-xl shadow-md p-4">
-                <img src={product.img} alt={product.name} className="rounded-md mb-3 h-40 w-full object-cover" />
-                <h3 className="font-bold text-lg text-neutral">{product.name}</h3>
-                <p className="text-sm line-clamp-3 text-neutral">{product.description}</p>
-                <Link
-                  to={`/products/details/${product.slug}`}
-                  className="inline-block btn btn-neutral py-2 mt-4 text-primary"
-                >
-                  View Details
-                </Link>
+              <div
+                key={product.id}
+                className="bg-base-100 border border-base-300 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 p-5 flex flex-col justify-between"
+              >
+                <img
+                  src={product.img}
+                  alt={product.name}
+                  className="rounded-lg mb-4 h-48 w-full object-cover"
+                />
+                <div className="flex flex-col flex-grow">
+                  <h3 className="font-semibold text-lg text-neutral line-clamp-2">{product.name}</h3>
+                  <p className="text-sm text-gray-500 line-clamp-3 mt-2">{product.description}</p>
+                  <Link
+                    to={`/products/details/${product.slug}`}
+                    className="mt-4 btn btn-neutral w-full text-white hover:text-primary"
+                  >
+                    View Details
+                  </Link>
+                </div>
               </div>
             ))
           ) : category.table ? (
-            <section className="w-full overflow-x-auto md:col-span-3">
+            <section className="w-full overflow-x-auto md:col-span-3 bg-base-100 border border-base-300 p-4 rounded-2xl shadow-sm">
               <WireTable data={category.table} />
             </section>
-
-
           ) : (
-            <p className="text-red-500 col-span-3">هیچ محصولی برای این دسته‌بندی موجود نیست.</p>
+            <div className="col-span-full text-center py-6 bg-error text-white rounded-xl">
+              <p>No products available in this category.</p>
+            </div>
           )}
         </div>
 

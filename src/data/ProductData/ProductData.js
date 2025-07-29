@@ -510,6 +510,7 @@ const productCategories = [
 
     {
         id: 21, 
+        type: 'wire',
         category: 'Galvanized wire', 
         slug: "galvanized-wire-sire", 
         introduce: 'Galvanized wire is a type of steel wire coated with a layer of zinc to resist rust and corrosion.  It is produced in two types: hot-dip galvanized and electro-galvanized.  The hot-dip galvanizing process involves immersing the cleaned wire in a bath of molten zinc with a small percentage of aluminum, which creates a durable coating against rust.', 
@@ -521,5 +522,6 @@ const productCategories = [
             {grades: '3SP', MPa: '410-440', wireDiameter: '3.30-5.50', coilWeight: '450'}, 
         ],
     },
+    
 ];
 export default productCategories; 
