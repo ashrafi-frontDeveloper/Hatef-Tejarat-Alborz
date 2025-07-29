@@ -99,7 +99,7 @@ export default function Register() {
         <div className="flex items-center gap-3 mb-6">
           <img 
             alt="HTA Logo"
-            src="/Logo-HTA.png"
+      src={`${import.meta.env.BASE_URL}Logo-HTA.png`}
             className="w-9 h-9 rounded-full"
           />
           <h2 className="text-xl font-semibold text-neutral">
